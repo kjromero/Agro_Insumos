@@ -5,6 +5,17 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('starter', ['ionic'])
 
+.config(function($stateProvider, $urlRouterProvider){
+  
+  $stateProvider
+    .state('splash',{
+      url: '/splash',
+      templateUrl: '/views/splash/splash.html'
+    });
+  $urlRouterProvider.otherwise('/splash');
+})
+
+
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
