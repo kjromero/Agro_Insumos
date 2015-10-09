@@ -1,0 +1,38 @@
+
+h3{
+	position: absolute;
+	margin-bottom: 2rem;
+	position: center;
+	text-align: center;
+}
+p{
+	position: relative;
+	text-align: justify;
+	font-size: 17px;
+	text-align: center;
+}
+.p_bar{
+	margin-top: 80px;
+}
+
+.center{
+	margin: 0 auto;
+	position: absolute;
+	left: 35%;
+}
+
+.title_loginn{
+	font-size: 18px;
+	font-family: "Ubuntu", sans-serif;
+}
+.form_login{
+	margin-top: 35px;
+	position: relative;
+	margin-left: 23px;
+	margin-right: 23px;
+}
+
+.input_login{
+	border-color: #e8b037;
+}
+
