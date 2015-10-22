@@ -1,0 +1,61 @@
+.launch
+	position: relative
+	width: 320px
+	text-align: center
+	
+	&.agroinsumos
+		padding-top: 80px
+		background: url('../img/launch_insumos.png') no-repeat center
+		background-size: cover
+		.dropdown
+			color: $agroinsumos-main
+	&.agroconecta
+		padding-top: 130px
+		background: url('../img/launch_conecta.png') no-repeat center
+		background-size: cover
+		.dropdown
+			color: $agroteconecta-main
+	&.agronegocios
+		padding-top: 40px
+		background: url('../img/launch_negocios.png') no-repeat center
+		background-size: cover
+		.dropdown
+			color: $agronegocios-main
+
+	.dropdown, button
+		margin-top: 27px
+
+.launch__content
+	@extend .small
+	margin-top: 27px
+	padding: 0.5em 0.5em
+	font-family: $second-font-light
+	font-weight: 200
+	color: white
+
+.launch__caption
+	background: rgba(0,0,0,0.5)
+	padding: 0.5em 1em
+	box-sizing: border-box
+	width: 100%
+	color: white
+	line-height: 16px
+
+.launch__footer
+	display: inline-block
+	height: 73px
+	width: 100%
+	left: 0
+	bottom: 0
+	background: white
+	vertical-align: middle
+	line-height: 73px
+	&:before
+		content: ''
+		display: inline-block
+		margin-right: -0.25em
+		height: 73px
+		vertical-align: middle
+	.mincultura
+		line-height: 27px
+		vertical-align: text-bottom

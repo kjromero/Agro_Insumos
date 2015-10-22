@@ -1,0 +1,133 @@
+.cont-agroteconecta
+  margin-top: 1rem
+  padding-bottom: 1rem
+  margin-bottom: 3rem
+  border-top: 1px solid $text-main-lighter
+  border-bottom: 1px solid $text-main-lighter
+  &__header
+    font-family: $second-font
+    &__heady
+      color: $agroteconecta-orange
+      .circle-n
+        background-color: $agroteconecta-orange
+        color: white
+        width: 30px
+        height: 30px
+        text-align: center
+        border-radius: 50%
+        display: inline-block
+        line-height: 30px
+        margin-right: 0.5rem
+
+  &__text-body
+    font-size: $fz-small
+  &__footer
+    position: relative
+    &:after
+      content: ' '
+      display: table
+      clear: both
+    .button
+      display: inline-block
+      margin: 0
+    .share
+      float: right
+      position: absolute
+      right: 0
+      top: 50%
+      transform: translateY(-50%)
+      color: $agroteconecta-orange
+      span
+        color: $agroteconecta-orange
+
+.cont-agronegocios
+  @extend .cont-agroteconecta
+  padding-top: 1rem
+ 
+  &__header
+    position: relative
+    font-family: $second-font
+    margin-bottom: 1rem
+    &:after
+      content: ' '
+      display: table
+      clear: both
+    &__info
+      float: left
+      width: 40%
+      padding-left: 40px
+      &__over-title,
+      &__title
+        margin: 0
+      &__over-title
+        font-size: $fz-small
+      &__title
+        color: $agroteconecta-blue
+      .picture
+        height: 30px
+        width: 30px
+        border-radius: 50%
+        border: 1px solid #f2f2f2
+        position: absolute
+        top: 50%
+        left: 0
+        transform: translateY(-50%)
+    .to-corner
+      position: absolute
+      top: 0
+      right: 0
+      font-weight: 700
+      font-size: $fz-small
+      color: $agroteconecta-blue
+  &__body
+    font-family: $second-font
+    &__life,
+    &__range
+      margin: 0
+      padding-left: 3.2rem
+      position: relative
+      &:before
+        font-family: icomoon
+        position: absolute
+        left: 1.4rem
+        top: 50%
+        transform: translateY(-50%)
+        color: $text-main-lighter
+    &__life
+      margin-bottom: 0.5rem
+      &:before
+        content: "\e600"
+    &__range
+      &:before
+        content: "\e607"
+
+.cont-agroinsumos
+  box-shadow: 0 0 10px rgba(black, 0.3)
+  border-radius: 4px
+  &__header
+    position: relative
+    padding: 1rem
+    background-color: $agroinsumos-main
+    border-top-left-radius: 4px
+    border-top-right-radius: 4px
+    &__title
+      color: white
+      margin: 0
+    [class^='icon-'], [class*=' icon-']
+      position: absolute
+      top: 0
+      line-height: 55px
+      right: 15px
+      &:before
+        color: white
+        
+  &__body
+    padding: 1rem 1rem 0.3rem  
+    border-bottom-left-radius: 4px
+    border-bottom-right-radius: 4px
+  .articles__third__header__cost
+    margin-bottom: 2rem
+    &:before
+      height: 0
+  .main
+    color: $agroinsumos-main

@@ -1,0 +1,40 @@
+<ion-view view-title=""  hide-back-button="false">
+<div class=" bar-header actionbar">
+	 <header class="header agroinsumos">
+          
+     </header>
+</div>
+<ion-content>
+	<div class="search__input">
+            <span class="icon icon-search"></span>
+            <input type="search" placeholder="Buscar">
+    </div>
+	<div class="list card">
+	    <header class="cont-agroinsumos__header">
+	      <h4 class="cont-agroinsumos__header__title">
+	        {{insumo.name}}
+	      </h4>
+	      <span class="icon-star_line"></span>
+	    </header>
+	    <div class="cont-agroinsumos__body">
+	      <div class="articles__third__header__cost">
+	      	<h4>Costo promedio Municipal</h4>
+	        <h1 class="main">
+	          {{insumo.precio_m}}
+	        </h1>
+	        <p class="national">
+	          <span>Costo nacional</span>
+	          <span>{{insumo.precio_n}}</span>
+	        </p>
+	        <p class="departmental">
+	          <span>Costo departamental</span>
+	          <span>{{insumo.precio_d}}</span>
+	        </p>
+	      </div>
+	      <button class="btn btn-primary btn-green">
+	        Ver mas
+	      </button>
+	    </div>
+	  </div>
+</ion-content>
+</ion-view>

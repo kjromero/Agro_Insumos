@@ -1,0 +1,109 @@
+.internal-title
+  .small 
+    color: white
+  &:after
+    content: ' '
+    display: table
+    clear: both
+  .left,
+  .right
+    width: 46%
+
+  .left
+    float: left
+  .right
+    float: right
+  &__first,
+  &__second,
+  &__third,
+    margin-bottom: 1rem
+    &:after
+      content: ' '
+      display: table
+      clear: both
+
+  &__first
+    background-color: $agroinsumos-main
+  &__second
+    background-color: $agronegocios-main
+  &__third
+    background-color: $agroteconecta-orange
+  &__header
+    border-bottom: 1px solid white
+    padding: 1rem
+    height: 60px
+    text-align: center
+    position: relative
+    &.with-scroll
+      height: 45px
+      padding: 0.5rem
+      .help-hight
+        &:before
+          height: 40px
+    &__text
+      display: inline-block
+      margin: 0
+      color: white
+    .go-back
+      position: absolute
+      &:before
+        content: '\e604'
+        font-family: icomoon
+        font-size: 0.7rem
+        color: white
+      &__icon
+        color: white
+
+    .add-favorite
+      float: right
+      &__icon
+        color: white
+        &:before
+          content: "\e60e"
+          font-family: icomoon
+          color: white
+          font-size: 0.8rem
+          margin-right: 1rem
+    .help-hight
+      position: absolute
+      left: 100%
+      margin-left: 0.3rem
+      padding-left: 0.3rem
+      font-weight: 300
+      color: $red-main
+      font-size: $fz-small
+      top: 50%
+      transform: translateY(-50%)
+      &:before
+        content: ' '
+        height: 60px
+        top: 50%
+        transform: translateY(-50%)
+        width: 1px
+        background-color: $red-main
+        position: absolute
+        left: 0
+
+  &__body
+    padding: 1rem
+    color: white
+    &__prof
+      margin: 0
+      img,
+      span
+        display: inline-block
+        vertical-align: middle
+      img
+        width: 30px
+        background-color: white
+        border-radius: 50%
+      span
+        font-weight: bold
+        color: white
+        margin-left: 0.5rem
+    &__lastupgrade
+      display: block
+      font-weight: 300
+    &__titles
+      h4
+        margin: 0

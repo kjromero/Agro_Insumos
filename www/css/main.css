@@ -3,7 +3,7 @@
  * 1. Set default font family to sans-serif.
  * 2. Prevent iOS and IE text size adjust after device orientation change,
  *    without disabling user zoom.
- */
+ */icon icon-search
 html {
   font-family: sans-serif;
   /* 1 */
@@ -456,7 +456,7 @@ th {
 .icon-right_line:before {
   content: "\e60b"; }
 
-.icon-search:before {
+.cont-agroinsumos:before {
   content: "\e60c"; }
 
 .icon-share:before {
@@ -671,7 +671,7 @@ label {
     text-align: center;
     outline: none;
     background: white;
-    color: #cd9b2e;
+    color: #BDBDBD;
     font-weight: 700; }
   .select span {
     position: absolute;
@@ -723,6 +723,7 @@ label {
     margin-bottom: 3rem; }
 
 .search__input {
+  margin-top: 60px;
   position: relative;
   width: 100%; }
   .search__input input[type="search"] {
@@ -1093,7 +1094,7 @@ label {
       padding-right: 3rem;
       max-width: 400px; }
     .block__content__cont-tag {
-      position: relative;
+      position: absolute;
       margin-bottom: 2rem; }
       .block__content__cont-tag.ubuntu {
         font-family: "Ubuntu", sans-serif; }
@@ -1973,6 +1974,7 @@ label {
       content: "\e607"; }
 
 .cont-agroinsumos {
+  z-index: 100;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   border-radius: 4px; }
   .cont-agroinsumos__header {
@@ -2076,14 +2078,16 @@ label {
 
 .launch {
   position: relative;
-  width: 320px;
+  width: 100%;
   text-align: center; }
   .launch.agroinsumos {
-    padding-top: 80px;
+    height: 600px;
+    padding-top: 105px;
     background: url("../img/launch_insumos.png") no-repeat center;
     background-size: cover; }
     .launch.agroinsumos .dropdown {
-      color: #e8b037; }
+      color: #e8b037;
+       }
   .launch.agroconecta {
     padding-top: 130px;
     background: url("../img/launch_conecta.png") no-repeat center;
@@ -2091,28 +2095,31 @@ label {
     .launch.agroconecta .dropdown {
       color: #21996c; }
   .launch.agronegocios {
-    padding-top: 40px;
+    padding-top: 80px;
     background: url("../img/launch_negocios.png") no-repeat center;
     background-size: cover; }
     .launch.agronegocios .dropdown {
       color: #58b9fe; }
   .launch .dropdown, .launch button {
-    margin-top: 27px; }
+    margin-top: 62px; }
 
 .launch__content {
-  margin-top: 27px;
+  margin-top: 57px;
   padding: 0.5em 0.5em;
   font-family: "ubuntulight" sans-serif;
   font-weight: 200;
-  color: white; }
+  color: white; 
+}
 
 .launch__caption {
+  margin-top: 92px;
   background: rgba(0, 0, 0, 0.5);
   padding: 0.5em 1em;
   box-sizing: border-box;
   width: 100%;
   color: white;
-  line-height: 16px; }
+  /*line-height: 16px; */
+}
 
 .launch__footer {
   display: inline-block;
@@ -2122,13 +2129,20 @@ label {
   bottom: 0;
   background: white;
   vertical-align: middle;
-  line-height: 73px; }
+  line-height: 73px;
+ }
   .launch__footer:before {
     content: '';
     display: inline-block;
     margin-right: -0.25em;
-    height: 73px;
-    vertical-align: middle; }
+  /*  height: 73px;*/
+    vertical-align: middle; 
+}
   .launch__footer .mincultura {
     line-height: 27px;
     vertical-align: text-bottom; }
+   
+
+.mincultura{
+  margin-top: 100000px;
+}

@@ -1,0 +1,340 @@
+.articles
+  padding: 1rem
+  &__first
+    max-width: 350px
+    background-color: #fafafa
+    border-radius: 4px
+    box-shadow: 0 0 20px rgba(black, .1)
+    margin-bottom: 1rem
+    &__header
+      position: relative
+      padding: 0.5rem
+      &:before
+        content: ''
+        position: absolute
+        height: 2px
+        width: 40px
+        background-color: $agroteconecta-orange
+        bottom: 0
+        left: 0.5em
+      .coverage
+        font-size: $fz-small
+        color: $text-main
+        span
+          color: $text-main-lighter
+
+      .validity
+        font-size: $fz-small
+        color: $text-main
+        span
+          color: $text-main-lighter
+
+      .link
+        font-size: $fz-small
+        color: $text-main
+        span
+          color: $text-main-lighter
+      .help-size
+        position: absolute
+        right: -5rem
+        color: $red-main
+        top: 20%
+        &:before
+          content: ''
+          position: absolute
+          right: 0
+          bottom: -4px
+          width: 90px
+          height: 1px
+          background-color: $red-main
+    &__body
+      position: relative
+      padding: 0.5rem
+      &__text
+        margin-bottom: 2rem
+      .help-size
+        position: absolute
+        right: -5rem
+        color: $red-main
+        top: -2.2rem
+        text-align: right
+        &:before
+          content: ''
+          position: absolute
+          right: 0
+          bottom: -4px
+          width: 80px
+          height: 1px
+          background-color: $red-main
+    &__footer
+      font-family: $second-font
+      text-align: center
+      &__util
+        color: $text-main
+        position: relative
+        .help-size
+          position: absolute
+          right: -5rem
+          font-size: $fz-main
+          top: -1.2rem
+          color: $red-main
+          &:before
+            content: ''
+            position: absolute
+            bottom: -0.6rem
+            width: 80px
+            height: 1px
+            right: 0
+            background-color: $red-main
+
+      &__yes,
+      &__no
+        text-transform: uppercase
+        font-weight: bold
+        border: 1px solid
+        text-align: center
+        width: 80px
+        height: 80px
+        display: inline-block
+        background-color: inherit
+        border-radius: 50%
+      &__yes
+        color: $green-main
+        margin-right: 1rem
+      &__no
+        color: $red-main
+      &__request-info
+        display: inline-block
+        margin-right: 0.3rem
+      .anchor
+        color: $agroteconecta-orange
+        span
+          color: $agroteconecta-orange
+    .dropdown-section
+      .dropdown
+        color: $agroteconecta-orange
+  &__second
+    @extend .articles__first
+    padding: 0.5rem
+
+    &__header
+      position: relative
+      padding: 0.3rem 0.2rem 1rem
+      &:before
+        content: ''
+        position: absolute
+        height: 2px
+        width: 40px
+        background-color: $agronegocios-main
+        bottom: 0
+        left: 0
+      &:after
+        content: ' '
+        display: table
+        clear: both
+      &__share
+        float: left
+        margin: 0
+        color: $agronegocios-main
+        span
+          color: $agronegocios-main
+      &__add-fav
+        float: right
+        margin: 0
+        color: $agronegocios-main
+        span
+          color: $agronegocios-main
+    &__body
+      font-family: $second-font
+      &__sale
+        position: relative
+        .help-size
+          position: absolute
+          right: -5rem
+          color: $red-main
+          top: -1.8rem
+          text-align: right
+          &:before
+            content: ''
+            position: absolute
+            right: 0
+            bottom: -4px
+            width: 90px
+            height: 1px
+            background-color: $red-main
+      &__info-sale
+        display: table
+        width: 80%
+        margin-bottom: 1rem
+        position: relative
+        .row
+          display: table-row
+          .cell
+            display: table-cell
+            width: 50%
+            &:first-child
+              text-align: left
+              color: $agroteconecta-blue
+              font-weight: bold
+            &:last-child
+              text-align: right
+        .help-element
+          position: absolute
+          right: -9rem
+          color: $red-main
+          top: 0
+          text-align: right
+          &:before
+            content: ''
+            position: absolute
+            right: 0
+            bottom: -4px
+            width: 90px
+            height: 1px
+            background-color: $red-main
+      &__date
+        margin-bottom: 1rem
+        position: relative
+        &__to,
+        &__presentation,
+        &__place
+          margin: 0 0 0.4rem 0
+          font-size: $fz-medium
+          span
+            color: $agroteconecta-blue
+            font-weight: bold
+        .help-size
+          position: absolute
+          right: -5rem
+          color: $red-main
+          top: 2.5rem
+          text-align: right
+          &:before
+            content: ''
+            position: absolute
+            right: 0
+            bottom: -4px
+            width: 90px
+            height: 1px
+            background-color: $red-main
+      .info-buyer
+        margin-bottom: 2rem
+        position: relative
+        &__title
+          color: $agroteconecta-blue
+        &__name,
+        &__phone,
+        &__place,
+        &__email
+          margin: 0 0 0.4rem 0.4rem
+          font-weight: normal
+          padding-left: 1.4rem
+          position: relative
+          &:before
+            color: $agroteconecta-blue
+            font-size: 1.2rem
+            position: absolute
+            top: 50%
+            transform: translateY(-50%)
+            left: 0
+        &__name
+          &:before
+            content: "\e609"
+            font-family: icomoon
+        &__phone
+          &:before
+            content: "\e606"
+            font-family: icomoon
+        &__place
+          &:before
+            content: "\e607"
+            font-family: icomoon
+        &__email
+          &:before
+            content: "\e605"
+            font-family: icomoon
+        .help-element
+          position: absolute
+          right: -5rem
+          color: $red-main
+          top: 5.5rem
+          text-align: right
+          &:before
+            content: ''
+            position: absolute
+            right: 0
+            bottom: -4px
+            width: 90px
+            height: 1px
+            background-color: $red-main
+  &__third
+    @extend .articles__first
+    &__header
+      font-family: $second-font
+      padding: 0.5rem
+      &__cost
+        display: table
+        margin-bottom: 3rem
+        width: 100%
+        position: relative
+        &:before
+          content: ''
+          position: absolute
+          bottom: -1rem
+          left: 0
+          height: 1px
+          width: 40px
+          background-color: $agroteconecta-blue
+        .national,
+        .departmental
+          margin: 0
+          display: table-row
+          span
+            display: table-cell
+            &:first-child
+              width: 60%
+              font-size: $fz-small
+              position: relative
+              padding-left: 1rem
+              &:before
+                content: "\e604"
+                font-family: icomoon
+                position: absolute
+                left: 0
+                top: 6px
+                transform: rotate(180deg)
+                font-size: 0.7rem
+            &:last-child
+              width: 40%
+        .help-element
+          position: absolute
+          right: -5rem
+          color: $red-main
+          top: 0.6rem
+          text-align: right
+          &:before
+            content: ''
+            position: absolute
+            right: 0
+            bottom: -4px
+            width: 90px
+            height: 1px
+            background-color: $red-main
+        .help-size
+          position: absolute
+          right: -5rem
+          color: $red-main
+          top: 3.5rem
+          text-align: right
+          &:before
+            content: ''
+            position: absolute
+            right: 0
+            bottom: -4px
+            width: 90px
+            height: 1px
+            background-color: $red-main
+
+      .cont-select
+        display: inline-block
+        width: 50%

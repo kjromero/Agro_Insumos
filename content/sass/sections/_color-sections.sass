@@ -1,0 +1,169 @@
+.app-colors
+  font-family: $second-font
+  font-weight: 300
+  margin-bottom: 5rem
+  &.main
+    .app-colors__main-color
+      background-color: $green-main
+    .app-colors__secondary-colors
+      .one
+        background-color: $green-light
+      .two
+        background-color: $green-dark
+  &.agro-te-conecta
+    .app-colors__main-color
+      background-color: $agroteconecta-main
+    .app-colors__secondary-colors
+      .one
+        background-color: $agroteconecta-light
+      .two
+        background-color: $agroteconecta-dark
+  &.agro-insumos
+    .app-colors__main-color
+      background-color: $agroinsumos-main
+    .app-colors__secondary-colors
+      .one
+        background-color: $agroinsumos-light
+      .two
+        background-color: $agroinsumos-dark
+
+  &.agro-negocios
+    .app-colors__main-color
+      background-color: $agronegocios-main
+    .app-colors__secondary-colors
+      .one
+        background-color: $agronegocios-light
+      .two
+        background-color: $agronegocios-dark
+
+  &__header
+    position: relative
+    padding-left: 2.5rem
+    margin-bottom: 3rem
+    &:before
+      content: ''
+      width: 30px
+      height: 30px
+      background-color: $green-main
+      display: inline-block
+      position: absolute
+      left: 0
+      top: 50%
+      transform: translateY(-50%)
+  .padding
+    padding-left: 2.5rem
+    .cont-color
+      margin-bottom: 3rem
+  &__text
+  &__main-color
+    padding: 1rem
+    text-align: center
+    color: white
+    font-weight: 300
+  &__secondary-colors
+    .one,
+    .two
+      width: 50%
+      text-align: center
+      padding: 0.4rem
+      font-weight: 300
+    .one
+      float: left
+      color: white
+    .two
+      float: right
+      color: white
+    &:after
+      content: ' '
+      display: table
+      clear: both
+
+.other-colors
+  &.main
+    .other-colors__left__first
+      background-color: $red-main
+    .other-colors__left__second
+      background-color: $red-dark
+    .other-colors__right__first
+      background-color: $text-main
+    .other-colors__right__second
+      background-color: $text-main-lighter
+
+  &.agro-insumos
+    .other-colors__left__first
+      background-color: $agroinsumos-green-light
+    .other-colors__left__second
+      background-color: $agroinsumos-green-dark
+    .other-colors__right__first
+      background-color: $agroinsumos-gray-light
+    .other-colors__right__second
+      background-color: $agroinsumos-gray-dark
+  &.agro-negocios
+    .other-colors__left__first
+      background-color: $agronegocios-green-light
+    .other-colors__left__second
+      background-color: $agronegocios-green-dark
+    .other-colors__right__first
+      background-color: $agronegocios-gray-light
+    .other-colors__right__second
+      background-color: $agronegocios-gray-dark
+  &:after
+    content: ' '
+    display: table
+    clear: both
+  &__left,
+  &__right
+    max-width: 400px
+    width: 46%
+  &__left
+    float: left
+    &__first
+      text-align: center
+      color: white
+      padding-top: 2rem
+      padding-bottom: 2rem
+    &__second
+      text-align: center
+      color: white
+      padding-top: 0.7rem
+      padding-bottom: 0.7rem
+  &__right
+    float: right
+    &__first
+      @extend .other-colors__left__first
+    &__second
+      @extend .other-colors__left__second
+
+  &__item
+    float: left
+    width: 30%
+    margin-right: 5%
+    &:last-of-type
+      margin-right: 0
+    &__first,
+    &__second
+      text-align: center
+      color: white
+      
+    &__first
+      padding-top: 2rem
+      padding-bottom: 2rem
+    &__second
+      padding-top: 0.7rem
+      padding-bottom: 0.7rem
+
+    &.purple
+      .other-colors__item__first
+        background-color: $agroteconecta-purple
+      .other-colors__item__second
+        background-color: $agroteconecta-purple-dark
+    &.blue
+      .other-colors__item__first
+        background-color: $agroteconecta-blue
+      .other-colors__item__second
+        background-color: $agroteconecta-blue-dark
+    &.orange
+      .other-colors__item__first
+        background-color: $agroteconecta-orange
+      .other-colors__item__second
+        background-color: $agroteconecta-orange-dark
