@@ -1,52 +1,71 @@
-var gulp = require('gulp');
-var gutil = require('gulp-util');
-var bower = require('bower');
-var concat = require('gulp-concat');
-var sass = require('gulp-sass');
-var minifyCss = require('gulp-minify-css');
-var rename = require('gulp-rename');
-var sh = require('shelljs');
+var autoprefixer = require('gulp-autoprefixer'),
+  browserSync = require('browser-sync'),
+  gulp = require('gulp'),
+  sass = require('gulp-sass'),
+  reload = browserSync.reload
 
-var paths = {
-  sass: ['./scss/**/*.scss']
-};
-
-gulp.task('default', ['sass']);
-
-gulp.task('sass', function(done) {
-  gulp.src('./scss/ionic.app.scss')
-    .pipe(sass({
-      errLogToConsole: true
-    }))
-    .pipe(gulp.dest('./www/css/'))
-    .pipe(minifyCss({
-      keepSpecialComments: 0
-    }))
-    .pipe(rename({ extname: '.min.css' }))
-    .pipe(gulp.dest('./www/css/'))
-    .on('end', done);
-});
-
-gulp.task('watch', function() {
-  gulp.watch(paths.sass, ['sass']);
-});
-
-gulp.task('install', ['git-check'], function() {
-  return bower.commands.install()
-    .on('log', function(data) {
-      gutil.log('bower', gutil.colors.cyan(data.id), data.message);
-    });
-});
-
-gulp.task('git-check', function(done) {
-  if (!sh.which('git')) {
-    console.log(
-      '  ' + gutil.colors.red('Git is not installed.'),
-      '\n  Git, the version control system, is required to download Ionic.',
-      '\n  Download git here:', gutil.colors.cyan('http://git-scm.com/downloads') + '.',
-      '\n  Once git is installed, run \'' + gutil.colors.cyan('gulp install') + '\' again.'
-    );
-    process.exit(1);
+var path = {
+    dist: 'www/dist/',
+    sass: 'content/sass/',
+    allsass: 'content/sass/**/*.sass',
+    excpartialsass: '!content/sass/**/_*.sass',
+    components: 'content/components/'
   }
-  done();
-});
+
+  gulp.task('sass', function () {
+    return gulp.src([ path.allsass, path.excpartialsass ] )
+      .pipe(sass({
+        indentedSyntax: true
+      }))
+      .on('error', swallowError)
+      .pipe(autoprefixer({
+          browsers: ['last 2 versions'],
+          cascade: false
+      }))
+      .pipe(gulp.dest( path.dist + 'css' ))
+      .pipe(reload({ stream:true }))
+  })
+  gulp.task('html', function () {
+    return gulp.src('www/**/*.html')
+      .pipe(reload({ stream:true }))
+  })
+
+  gulp.task('watch', ['production'], function() {
+    gulp.watch( path.allsass, ['sass'])
+    gulp.watch(['content/fonts/**/*'], ['assets:fonts'])
+    gulp.watch(['content/img/**/*'], ['assets:img'])
+    gulp.watch('www/**/*.html', ['html'])
+  })
+
+  gulp.task('server', function() {
+    browserSync({
+      notify: false,
+      server: {
+         baseDir: "./www/"
+      }
+    })
+  })
+
+  gulp.task('assets:fonts', function () {
+    return gulp.src('content/fonts/**/*')
+            .pipe(gulp.dest('www/dist/fonts'))
+  })
+
+  gulp.task('assets:img', function () {
+    return gulp.src('content/img/**/*')
+            .pipe(gulp.dest('www/dist/img'))
+  })
+
+  gulp.task('default', ['server', 'watch'])
+  gulp.task('production', ['sass', 'assets:fonts', 'assets:img'])
+
+
+  /**
+   * Swallow errors preventing the watch to stop
+   * @param  {Error} error
+   */
+  function swallowError (error) {
+    //If you want details of the error in the console
+    console.log( error.toString() )
+    this.emit('end')
+  }

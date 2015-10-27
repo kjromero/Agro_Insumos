@@ -1,40 +1,64 @@
-<ion-view view-title=""  hide-back-button="false">
-<div class=" bar-header actionbar">
+<ion-view view-title=" Fertilizantes"  hide-back-button="false">
+<div class="bar-header actionbar">
 	 <header class="header agroinsumos">
-          
+          <h1>Fertilizantes</h1>
      </header>
 </div>
 <ion-content>
 	<div class="search__input">
-            <span class="icon icon-search"></span>
-            <input type="search" placeholder="Buscar">
+       <span class="icon icon-search"></span>
+       <input type="search" placeholder="Buscar">
     </div>
-	<div class="list card">
-	    <header class="cont-agroinsumos__header">
-	      <h4 class="cont-agroinsumos__header__title">
-	        {{insumo.name}}
-	      </h4>
-	      <span class="icon-star_line"></span>
-	    </header>
-	    <div class="cont-agroinsumos__body">
-	      <div class="articles__third__header__cost">
-	      	<h4>Costo promedio Municipal</h4>
-	        <h1 class="main">
-	          {{insumo.precio_m}}
-	        </h1>
-	        <p class="national">
-	          <span>Costo nacional</span>
-	          <span>{{insumo.precio_n}}</span>
-	        </p>
-	        <p class="departmental">
-	          <span>Costo departamental</span>
-	          <span>{{insumo.precio_d}}</span>
-	        </p>
-	      </div>
-	      <button class="btn btn-primary btn-green">
-	        Ver mas
-	      </button>
-	    </div>
-	  </div>
+
+	<div class="select ">
+	    <span class="icon-down_line"></span>
+	    <select>
+	        <option>Está viendo insumos en:   Tunja</option>
+	        <option>Opcion B</option>
+	    </select>
+	 </div>
+	
+	<a href="#/addprecio">
+	<button class="btn btn-primary btn-green btn-plus-b">Añadir precio</button>
+	</a>
+	
+	<div align="center" >
+      <p class="title_loginn">
+          Los precios a continuacion mostrados están</br> regidos bajo la Ley 321 de la republica </br> de Colombia. <strong><u> Conocer más </u></strong>
+      </p>
+    </div>
+
+	<section class="cont-agroinsumos" ng-repeat="insumo in insumos">
+        <header class="cont-agroinsumos__header">
+          <h4 class="cont-agroinsumos__header__title">
+            {{insumo.name}}
+          </h4>
+          <span class="icon-star_line"></span>
+        </header>
+        <p class="ubuntu medium">
+      	 Costo promedio Municipal
+        </p>
+        <div class="cont-agroinsumos__body">
+          <div class="articles__third__header__cost">
+            <h1 class="main">
+              {{insumo.precio_m}}
+            </h1>
+            <p class="national">
+              <span>Costo nacional</span>
+              <span>{{insumo.precio_n}}</span>
+            </p>
+            <p class="departmental">
+              <span>Costo departamental</span>
+              <span>{{insumo.precio_d}}</span>
+            </p>
+          </div>
+          <a href="#/insumo">
+		      <button class="btn btn-primary btn-green">
+		        Ver mas
+		      </button>
+	      </a>
+        </div>
+    </section>
+
 </ion-content>
 </ion-view>
