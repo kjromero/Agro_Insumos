@@ -1,0 +1,281 @@
+html {
+  background: #F5F5F5;
+  background-color: #F5F5F5;
+}
+h3{
+	position: absolute;
+	margin-bottom: 2rem;
+	text-align: center;
+}
+p{
+	margin-top: 25px;
+	margin-left: 23px;
+	position: relative;
+	text-align: justify;
+	font-size: 17px;
+	text-align: center;
+}
+
+table, tr, td{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+tr, th{
+  height: 100%;
+}
+th label{
+  font-size: 18px;
+  font-family: "Ubuntu", sans-serif;
+}
+
+hr{
+  border: none;
+  padding: 0.5em 0;
+  border-bottom: 1px solid #CBCCCD;
+}
+
+select{
+  margin-right: 23px;
+  margin-left: 23px;
+}
+
+.addprecio{
+  margin-top: 60px;
+}
+
+.op_orange{
+  color: #ff8400;
+}
+
+.be_co {
+  background-color: #FAFAFA;
+  color: #606060 ;
+  border-color: #606060 ;
+}
+
+.p_bar{
+	margin-top: 80px;
+}
+
+.center{
+	margin: 0 auto;
+	position: absolute;
+	left: 35%;
+}
+
+.confirmar{
+  margin-top: 45px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.confirmar p,
+.confirmar h1{
+  font-family: "Ubuntu", sans-serif;
+}
+.confirmar h2{
+  font-size: 30px;
+  color: #e8b037;
+}
+
+.conf_text{
+  text-align: left;
+  margin-left: 0px;
+}
+
+.conf_title{
+  margin-top: 22px;
+  margin-left: 0; 
+}
+.conf_title img{
+  width: 30px;
+  background-color: white;
+  border-radius: 50%;
+}
+.conf_title span{
+  font-family: "Ubuntu", sans-serif;
+  margin-left: 0.5rem;
+}
+.conf_title img,
+.conf_title span{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.title_loginn{
+	font-size: 18px;
+	font-family: "Ubuntu", sans-serif;
+}
+.form_login{
+	margin-top: 60px;
+	position: relative;
+	margin-left: 23px;
+	margin-right: 23px;
+}
+.forms_select{
+  margin-top: 70px;
+  position: relative;
+}
+
+.headeri{
+  height: 60px;
+  margin-bottom: 1rem;
+  color: white;
+  font-family: "Ubuntu", sans-serif;
+  position: relative;
+  background-color: #e8b037; 
+  content: ' ';
+    display: table;
+    clear: both;
+
+}
+
+.input_login{
+	border-color: #e8b037;
+}
+
+.branding{
+	position: absolute;
+	z-index: 100;
+}
+.profile__text,
+.profile__img,
+.profile__arrow {
+  line-height: 46px; }
+
+.profile {
+    float: right;
+    height: 100%;
+    position: relative;
+}
+.profile__text,
+.profile__img {
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 60px; }
+.profile__text {
+	height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 60px;
+	color: white;
+    font-family: "Ubuntu", sans-serif;
+    margin-right: 0.8rem; }
+.profile__img {
+  position: relative;
+  height: 28px;
+  width: 28px;
+  background: white;
+  border-radius: 50%;
+  text-align: center;
+  margin-right: 32px;
+  overflow: hidden;
+  border: 1px solid #59595c; }
+.profile__img .icon-profile {
+    position: absolute;
+    color: #59595c;
+    top: 50%;
+    left: 50%;
+    font-size: 24px;
+    -webkit-transform: translate(-50%, -34%);
+    transform: translate(-50%, -34%); }
+.profile__arrow {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  line-height: 60px;
+  font-size: 10px; }
+
+.bar .profile__img{
+  position: relative;
+}  
+.name{
+  color: #ff8400;
+  font-family: "Ubuntu", sans-serif;
+}
+.progreso_perfil{
+  color: #000;
+  position: absolute;
+  margin-top: 30px;
+}
+.cabecera{
+  margin-top: 10px;
+  position: relative;
+  text-align: center;
+  display: inline-block;
+  left: 7% ;
+}
+
+.text_img{
+  position: relative;
+  margin-bottom: 20px;
+
+}
+.gris{
+  background-color: #FAFAFA;
+}
+.inf_ca{
+  position: relative;
+  margin-bottom: 13px;
+  color: #ff8400;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.list{
+  margin-top: 15px;
+}
+.but{
+  margin-top: 10px;
+  margin-left: 23px;
+  margin: 23px;
+}
+.table_insumos{
+  position: relative;
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+  height: 340px;
+}
+
+.title_perfil{
+  color: white;
+  text-align: center;
+  margin-top: -13px;  
+  font-family: "Ubuntu", sans-serif;
+}
+
+.title_insumo h1{
+  color: #fff;
+  font-family:  "Ubuntu", sans-serif;
+  margin-top: 15px;
+}
+
+.title_insumo p{
+  color: #fff;
+  font-family:  "Ubuntu", sans-serif;
+  margin-top: 20px;
+  font-size: 14px;
+  text-align: left;
+  margin-left: 0;
+}
+.select{
+  width: 100%;
+  margin-right: 23px;
+  text-align: left;
+}
+.bar-{
+  z-index: 100;
+}
+.actionbar {
+  position: relative;
+  z-index: 100;
+}
+.int_insumo{
+  margin-top: 61px;
+}
+.cont-agroinsumos button{
+  margin-top: 11px;
+}

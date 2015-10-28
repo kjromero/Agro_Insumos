@@ -1,0 +1,104 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar headeri agroinsumos">
+       <!-- header agroinsumos -->
+       
+        <div class="branding">
+          <img src="img/icon_insumos.png" height="42" width="126">
+        </div>
+        
+        <ion-nav-buttons side="right">
+          <div class="profile" menu-toggle="right">
+                <span class="profile__text">Perfil</span>
+                <span class="profile__img">
+                  <span class="icon-profile"></span>
+                </span>
+                <span class="icon-right_line profile__arrow"></span>
+          </div>
+        </ion-nav-buttons>
+      
+    </ion-nav-bar>
+      <ion-content>
+        <div class="search__input">
+            <span class="icon icon-search"></span>
+            <input type="search" placeholder="Buscar">
+        </div>
+
+        <div align="center" >
+          <p class="title_loginn">
+              Encuentre los costos de los insumos</br> que necesita para su produccion en
+          </p>
+        </div>
+        <div class="select">
+          <span class="icon-down_line"></span>
+          <select>
+            <option>Tunja</option>
+            <option>Tenjo</option>
+          </select>
+        </div>
+        <div  aling="center" class="table_insumos">       
+          <table>
+            <tr>
+              <th> 
+                <a href="#/fertilizantes">
+                  <img src="img/Icon_fertilizante.png" height="100" width="105"> </br>
+                  <label>Fertilizantes </label>
+                </a>
+              </th>
+              <th class="right"> 
+                <a href="#/fertilizantes">
+                  <img src="img/Icon_medicamentos.png" height="100" width="105"></br>
+                  <label>Mecadimentos</br> veterinarios</label>
+                </a>
+              </th>
+            </tr>
+            <tr>
+              <th> 
+                <a href="#/fertilizantes">
+                  <img src="img/icon_vacunas.png" height="100" width="105"></br>
+                  <label>Vacunas</label>
+                </a>
+              </th>
+              <th class="right"> 
+                <a href="#/fertilizantes">
+                 <img src="img/icon_plaguicidas.png" height="100" width="105"></br>
+                 <label>Plagicidas</label>
+                </a>
+              </th>
+            </tr>
+          </table>
+        </div>
+ 
+      </ion-content>
+  </ion-side-menu-content>
+ 
+  <ion-side-menu side="right">
+    <ion-header-bar class="bar">
+      <div align="center">
+        <span class="profile__img">
+      </div>
+      <div  menu-close>
+      cerrar<i class="ion-arrow-left-c"></i>
+      </div>
+    </ion-header-bar>
+    <ion-content>
+
+      <h2 class="name">Pedro Fernandez</h2>
+      <h3 class="progreso_perfil">Su perfil esta 20% completado</h3>
+
+      <ion-list>
+        <ion-item menu-close href="#/tab/opciones">
+          Mi perfil
+        </ion-item>
+        <ion-item menu-close href="">
+            Mis favoritos
+        </ion-item>
+        <ion-item menu-close href="">
+          cerrar sesión
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>
+
+
