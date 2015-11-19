@@ -1,10 +1,14 @@
-// Ionic Starter App
+// Ionic proyect App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
+// 'proyect' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-// 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+// 'proyect.controllers' is found in controllers.js
+angular.module('proyect',
+  [
+    'ionic', 
+    'proyect.controllers'
+  ])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -25,20 +29,34 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
 
 .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
-  $stateProvider
 
+  $stateProvider
 
   .state('splash',{
     url:'/splash',
     templateUrl: 'views/splash/splash.html'
   })
+
+  .state('registro',{
+    url:'/registro',
+    controller: 'loginCtrl',
+    templateUrl: 'views/login/registro.html'
+  })
+
+  .state('registro-result',{
+    url:'/registro/result',
+    templateUrl: 'views/login/resultLogin.html'
+  })
+
+  
   .state('login',{
     url:'/login',
     templateUrl: 'views/login/login.html'
   })
-
+ 
   .state('home',{
     url:'/home',
+    controller: 'homeCtrl',
     templateUrl: 'views/home/home.html'
   })
 
@@ -52,8 +70,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     abstract: true,
     templateUrl: 'views/perfil/tabs.html'
   })
-
-  // Each tab has its own nav history stack:
 
   .state('tab.dash', {
     url: '/opciones',
@@ -75,19 +91,23 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
   .state('fertilizantes',{
     url:'/fertilizantes',
-    controller: 'FertilizantesController',
+    controller: 'categoriaCtrl',
     templateUrl: 'views/categorias/fertilizantes/fertilizantes.html'
   })
+
   .state('addprecio',{
     url:'/addprecio',
     templateUrl: 'views/addprecio/addprecio.html'
   })
+
   .state('confirmar',{
     url:'/confirmar',
     templateUrl: 'views/addprecio/confirmar.html'
   })
+
   .state('insumo',{
     url:'/insumo',
+    controller: 'insumoCtrl',
     templateUrl: 'views/categorias/insumo/insumo.html'
   });
   

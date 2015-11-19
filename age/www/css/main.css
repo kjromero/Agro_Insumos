@@ -3,7 +3,7 @@
  * 1. Set default font family to sans-serif.
  * 2. Prevent iOS and IE text size adjust after device orientation change,
  *    without disabling user zoom.
- */with-scroll
+ */launch__footer
 html {
   font-family: sans-serif;
   /* 1 */
@@ -39,7 +39,8 @@ menu,
 nav,
 section,
 summary {
-  display: block; }
+  display: block;
+  z-index: 100; }
 
 /**
  * 1. Correct `inline-block` display not defined in IE 8/9.
@@ -2135,18 +2136,26 @@ label {
   vertical-align: middle;
   line-height: 73px;
  }
+
+.launch__footer .small{
+  margin-right: 145px;
+}
   .launch__footer:before {
     content: '';
     display: inline-block;
     margin-right: -0.25em;
-  /*  height: 73px;*/
     vertical-align: middle; 
 }
   .launch__footer .mincultura {
     line-height: 27px;
     vertical-align: text-bottom; }
-   
 
-.mincultura{
-  margin-top: 100000px;
+
+.ng-valid{
+  border: thin solid #fff;
 }
+
+.ng-invalid{
+  border: thin solid #D50000;
+}    
+   

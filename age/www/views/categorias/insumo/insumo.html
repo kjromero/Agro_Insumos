@@ -13,14 +13,14 @@
       </div>
     </header>
 </div>
-  <ion-content class="gris">
+  <ion-content class="gris" ng-controller="insumoCtrl">
 	<div class="internal-title__body int_insumo">
 	    <figure class="internal-title__body__prof">
 	      <img src="img/Icon_fertilizante.png">
-	      <span>Fertilizante</span>
+	      <span>{{detalleInsumo.CategoriaId}}</span>
 	    </figure>
 	    <div class="title_insumo">
-	      <h1 class="">Abono 12-24-24</h1>
+	      <h1 class="">{{detalleInsumo.NombreInsumo}}</h1>
 		  <p class="">
 		     Ultima actualización el 27 de octubre de 2015
 		  </p>
@@ -43,7 +43,7 @@
               </div>
               <div class="articles__third__header__cost">
                 <h1 class="main">
-                  $85.000
+                  {{detalleInsumo.CostoPromdedioMunicipal}}
                 </h1>
                 <p class="national">
                   <span>Costo nacional</span>
@@ -51,14 +51,36 @@
                 </p>
                 <p class="departmental">
                   <span>Costo departamental</span>
-                  <span>$83.000</span>
+                  <span>{{detalleInsumo.CostoDepartamental}}</span>
                 </p>
               </div>
               <a href="#/addprecio">
               <button class="btn btn-primary btn-green btn-plus-a">Añadir precio</button>
           	  </a>
             </header>
-            <div class="dropdown-section">
+
+            <!-- listas desplegables -->
+            
+            <ion-list class="dropdown-section">
+            <div ng-repeat="group in groups">
+                <ion-item class="item-stable dropdown__title"  ng-click="toggleGroup(group)"
+                   ng-class="{active: isGroupShown(group)}">
+
+                    <i class="icon" ng-class="isGroupShown(group) ? 'ion-minus' : 'ion-plus'"></i>             
+                    {{group.name}}
+                </ion-item>
+                <ion-item class="item-accordion"
+                          ng-repeat="item in group.items"
+                          ng-show="isGroupShown(group)">
+                    {{item}}
+                </ion-item>
+              </div>
+            </ion-list>
+
+  
+
+
+       <!--  <div class="dropdown-section">
               <ul class="dropdown">
                 <li class="dropdown__tap"> 
                   <div class="dropdown__title">
@@ -69,15 +91,20 @@
                   <div class="dropdown__title">Puntos de venta </div>
                 </li>
               </ul>
-            </div>
+            </div> -->
+
+
+
+
+
             <footer class="articles__first__footer">
               <p class="articles__first__footer__util small">
                 ¿Le fue util esta información?
               </p>
-              <a href="#/home">
+              <a href="#/home" ng-click="yea(1)">
                 <button class="articles__first__footer__yes">Si</button>
               </a>
-              <a href="#/home">
+              <a href="#/home" ng-click="yea(2)">
                <button class="articles__first__footer__no">No</button>
               </a>
           </br>

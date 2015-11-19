@@ -55,15 +55,37 @@ select{
   border-color: #606060 ;
 }
 
-.p_bar{
-	margin-top: 80px;
+.button.button-color-green {  
+  border-color: #e8b037;
+  height: 50px;
+  margin-top: -1px;
+  margin-bottom: -1px;
+  max-height: 51px;
+}
+
+.bar .profile__img{
+  position: relative;
+}  
+
+.borderForm{
+  border-color: green;
+  color: green;
+}
+.borderFormError{
+  border-color: red;
+  color: red;
+}
+
+.button-clear.button-clear-white{
+  color: blue;
 }
 
 .center{
-	margin: 0 auto;
-	position: absolute;
-	left: 35%;
+  margin: 0 auto;
+  position: absolute;
+  left: 35%;
 }
+
 
 .confirmar{
   margin-top: 45px;
@@ -83,6 +105,13 @@ select{
 .conf_text{
   text-align: left;
   margin-left: 0px;
+}
+
+.contentLoginImageAux{
+  width: 100%;
+  height: 90px;  
+  background-color: #2F6850;
+  padding-top: 12px;
 }
 
 .conf_title{
@@ -105,19 +134,37 @@ select{
 }
 
 .title_loginn{
-	font-size: 18px;
-	font-family: "Ubuntu", sans-serif;
+  font-size: 18px;
+  font-family: "Ubuntu", sans-serif;
 }
 .form_login{
-	margin-top: 60px;
-	position: relative;
-	margin-left: 23px;
-	margin-right: 23px;
+  margin-top: 60px;
+  position: relative;
+  margin-left: 23px;
+  margin-right: 23px;
 }
 .forms_select{
   margin-top: 70px;
   position: relative;
 }
+
+.fontFrom{
+  margin-top: 250px;
+}
+.fontFromResult{
+  margin-top: 100px;
+}
+
+.footerInit {
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:70px;   /* Height of the footer */
+  background: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 20px
+ }
 
 .headeri{
   height: 60px;
@@ -129,17 +176,78 @@ select{
   content: ' ';
     display: table;
     clear: both;
+  z-index: 100;
+}
 
+.imageProfile{
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
 }
 
 .input_login{
-	border-color: #e8b037;
+  border-color: #e8b037;
+}
+
+
+
+.itemsMenu{
+  padding-left:10px;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  font-size: 16px;
+  height: 50px;
+  color: #59595c;
+  width: 100%;  
+}
+
+.letterInit{
+
+  margin-top: 5px;
+  margin-bottom: auto;
+  height: 30;
+  font-size: 14px;
+  font-weight: 200;
+  float: left;
+  font-family: "Ubuntu", sans-serif;
+  color: #59595c;
+  width: 55%;
+}
+
+.logoImage{
+    float: left;
+    width: 40%;
+    height: 100%;
+    margin-left: 15px;
+    background-size: 100%;
+    background-image: url("../img/logo_min.png");
+    background-repeat: no-repeat;
+}
+
+.mincultura{
+  position: absolute;
+  margin-top: 25px;
+  margin-left: -120px;
+}
+
+.marginAuxTab{
+  margin-top: 15px;
 }
 
 .branding{
-	position: absolute;
-	z-index: 100;
+  position: absolute;
+  z-index: 100;
 }
+
+.passwordView{
+  height: 50px;
+  margin-top: -1px;
+  margin-bottom: -1px;
+  max-height: 51px;
+  padding-top: 10px;
+}
+
+
 .profile__text,
 .profile__img,
 .profile__arrow {
@@ -157,11 +265,11 @@ select{
   vertical-align: middle;
   line-height: 60px; }
 .profile__text {
-	height: 100%;
+  height: 100%;
     display: inline-block;
     vertical-align: middle;
     line-height: 60px;
-	color: white;
+  color: white;
     font-family: "Ubuntu", sans-serif;
     margin-right: 0.8rem; }
 .profile__img {
@@ -189,9 +297,16 @@ select{
   line-height: 60px;
   font-size: 10px; }
 
-.bar .profile__img{
-  position: relative;
-}  
+.p_bar{
+  margin-top: 80px;
+}
+
+.passwordCreate{
+  padding-left: 10px;
+  padding-right: 0px;
+}
+
+
 .name{
   color: #ff8400;
   font-family: "Ubuntu", sans-serif;
@@ -200,6 +315,11 @@ select{
   color: #000;
   position: absolute;
   margin-top: 30px;
+}
+
+.plogin{
+  font-size: 14px;
+  margin-right: 16px;
 }
 .cabecera{
   margin-top: 10px;
@@ -224,9 +344,16 @@ select{
   font-family: "Ubuntu", sans-serif;
 }
 
+
 .list{
   margin-top: 15px;
 }
+
+.paddingContent{
+  padding: 30px 30px;
+}
+
+
 .but{
   margin-top: 10px;
   margin-left: 23px;
@@ -239,6 +366,34 @@ select{
   margin-right: 50px;
   height: 340px;
 }
+
+.textLogin{
+  font-size: 16px;  
+  text-align: center;
+}
+
+.textLoginMin{
+  font-size: 14px;  
+  
+}
+
+.textColorLogin{
+  color: #59595c;
+}
+
+.textImageProfile{
+  color: #636363;
+  margin-left: 25px;
+  display: inline-block;  
+  margin-top: 20px;
+}
+
+.titleForm{
+  padding:  0px 30px;
+  color: #636363;
+ 
+}
+
 
 .title_perfil{
   color: white;
@@ -266,6 +421,60 @@ select{
   margin-right: 23px;
   text-align: left;
 }
+
+
+.startImage{
+  
+  width: 200px;
+  height: 80px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 100px;
+  background-repeat: no-repeat;
+  background-size: 100% ;
+  background-image: url("../img/logo_insumos.png");
+  
+}
+
+.startImageLoginAux{
+  width: 150px;
+  height: 90px;
+  
+  float:right;
+  margin-top : 10px;
+  margin-right:20%;
+  background-repeat: no-repeat;
+  background-size: 100% ;
+  background-color: transparent ;
+  background-image: url("../img/logo_insumos.png");
+}
+
+.startFont{  
+  background-image: url("../img/launch_insumos.png");
+  width: 100%;
+  height: 100%;
+}
+
+.startText {
+  margin-top: 50px;
+  padding: 15px 30px;
+  color: white;
+  font-size: 15px;
+  text-align: center;
+  font-family: "ubuntulight" sans-serif;
+}
+
+.startPaddingButton{
+  
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 20px;
+  margin-top: 40px;
+  font-family: "Ubuntu", sans-serif;
+
+}
+
+
 .bar-{
   z-index: 100;
 }
@@ -279,3 +488,5 @@ select{
 .cont-agroinsumos button{
   margin-top: 11px;
 }
+
+borderForm

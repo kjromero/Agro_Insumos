@@ -1,4 +1,5 @@
 <ion-view view-title=" Fertilizantes"  hide-back-button="false">
+
 <div class="bar-header actionbar">
 	 <header class="header agroinsumos">
         <div class="internal-title__header with-scroll">
@@ -10,12 +11,21 @@
         </div>
     </header>
 </div>
-<ion-content>
+<ion-content ng-controller="categoriaCtrl">
 	<div class="search__input">
-       <span class="icon icon-search"></span>
-       <input type="search" placeholder="Buscar">
-    </div>
+   <span class="icon icon-search"></span>
+   <input type="search" placeholder="Buscar" ng-change="searchInCategoria()" ng-model="data.searchInCategoria">
+  </div>
 
+  <!-- Lista de resultados de busqueda -->
+  <div class="list_result">
+    <img src="" alt="">
+    <a href="#/insumo" ng-click="pasId({{insumo.IdInsumo}})">
+      <li class="item" ng-repeat="airline in data.airlines">{{airline.NombreInsumo}}</li>
+    </a>
+  </div>
+
+  <!-- Geolocalizacion  -->
 	<div class="select ">
 	    <span class="icon-down_line"></span>
 	    <select>
@@ -25,19 +35,19 @@
 	 </div>
 	
 	<a href="#/addprecio">
-	<button class="btn btn-primary btn-green btn-plus-b">Añadir precio</button>
+	 <button class="btn btn-primary btn-green btn-plus-b">Añadir precio</button>
 	</a>
-	
+
 	<div align="center" >
       <p class="title_loginn">
-          Los precios a continuacion mostrados están</br> regidos bajo la Ley 321 de la republica </br> de Colombia. <strong><u> Conocer más </u></strong>
+          Los precios a continuacion mostrados están</br> regidos bajo la Ley 321 de la republica </br> de Colombia. <a href="https://www.minagricultura.gov.co/Paginas/default.aspx"> <strong><u>Conocer más </u></strong></a>
       </p>
     </div>
-
+    
 	<section class="cont-agroinsumos" ng-repeat="insumo in insumos">
         <header class="cont-agroinsumos__header">
           <h4 class="cont-agroinsumos__header__title">
-            {{insumo.name}}
+            {{insumo.NombreInsumo}}
           </h4>
           <span class="icon-star_line"></span>
         </header>
@@ -47,20 +57,21 @@
         <div class="cont-agroinsumos__body">
           <div class="articles__third__header__cost">
             <h1 class="main">
-              {{insumo.precio_m}}
+              ${{insumo.CostoPromdedioMunicipal}}
             </h1>
             <p class="national">
               <span>Costo nacional</span>
-              <span>{{insumo.precio_n}}</span>
+              <span>${{insumo.CostoDepartamental}}</span>
             </p>
             <p class="departmental">
               <span>Costo departamental</span>
-              <span>{{insumo.precio_d}}</span>
+              <span>${{insumo.CostoDepartamental}}</span>
             </p>
           </div>
-          <a href="#/insumo">
-		      <button class="btn btn-primary btn-green">
+          <a href="#/insumo" ng-click="pepo({{insumo.IdInsumo}})">
+		      <button class="btn btn-primary btn-green" >
 		        Ver mas
+            {{insumo.IdInsumo}}
 		      </button>
 	      </a>
         </div>

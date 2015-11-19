@@ -9,187 +9,139 @@
   </div>
   <ion-content class="gris">
 
-  <div class="cabecera" align="center">
-      <img src="img/perfil.png" height="32" width="32">
-      <label class="text_img">Añadir imagen de perfil</label>
-  </div>
-
-    <form >
-      <div class="list">
-      
-        <h3 class="inf_ca">Informacion</h3>
-<!-- Nombre-->
-        <p class="block__content__cont-tag ubuntu medium">
-            Nombre:
-        </p>
-        <div class="form_login ">
-            <label class="item item-input input_login">
-
-                <input type="text" placeholder="Ingrese su nombre completo">
-
-            </label>
-        </div>
-<!-- correo -->
-        <p class="block__content__cont-tag ubuntu medium">
-            Correo electronico:
-        </p>
-        <div class="form_login ">
-            <label class="item item-input input_login">
-
-                <input type="email" placeholder="email@correo.com">
-
-            </label>
-        </div>
-<!-- documento de identidad -->
-        <p class="block__content__cont-tag ubuntu medium">
-            Documento de identidad:
-        </p>
-        <div class="form_login ">
-            <label class="item item-input input_login">
-
-                <input type="number" placeholder="C.C 000000000000">
-
-            </label>
-        </div>
-
-        <h3 class="inf_ca">Informacion personal</h3>
-<!-- nivel educativo -->
-      
-      <p class="block__content__cont-tag ubuntu medium">
-            Nivel educativo:
-        </p>
-        <div class="forms_select">
-            <div class="select">
-              <span class="icon-down_line"></span>
-              <select class="" name="" id="">
-                <option value="option">Seleccione su nivel educativo</option>
-                <option value="option">Primaria</option>
-                <option value="option">Secundaria</option>
-              </select>
-            </div>
-        </div>
-<!-- lugar de residencia -->
-      <p class="block__content__cont-tag ubuntu medium">
-            Lugar de residencia:
-        </p>
-        <div class="form_login ">
-            <label class="item item-input input_login">
-
-                <input type="text" placeholder=" ">
-
-            </label>
-        </div>
-<!-- genero -->
-      <p class="block__content__cont-tag ubuntu medium">
-            Género:
-        </p>
-        <div class="forms_select">
-            <div class="select">
-              <span class="icon-down_line"></span>
-              <select class="" name="" id="">
-                <option value="option">Seleccione su género</option>
-                <option value="option">Masculino</option>
-                <option value="option">Femenino</option>
-              </select>
-            </div>
-        </div>
-<!-- Numero celular -->
-      <p class="block__content__cont-tag ubuntu medium">
-            Numero celular:
-        </p>
-        <div class="form_login ">
-            <label class="item item-input input_login">
-
-                <input type="number" placeholder="*************">
-
-            </label>
-        </div>
-
-      <h3 class="inf_ca">Actividad agropecuaria</h3>
-<!-- Lugar de produccion -->
-      <p class="block__content__cont-tag ubuntu medium">
-            Lugar de Produccion:
-        </p>
-        <div class="form_login ">
-            <label class="item item-input input_login">
-
-                <input type="text" placeholder=" ">
-
-            </label>
-        </div>
-<!-- Pertenece a una sociacion -->
-      <p class="block__content__cont-tag ubuntu medium">
-            Pertenece a una sociacion:
-        </p>
-        <div class="forms_select">
-              <div class="select">
-                <span class="icon-down_line"></span>
-                <select class="" name="" id="">
-                  <option value="option">SI / NO</option>
-                  <option value="option">SI</option>
-                  <option value="option">NO</option>
-                </select>
-              </div>
-        </div>
-<!-- agricolar -->
-      <p class="block__content__cont-tag ubuntu medium">
-            Actividad Agricola:
-        </p>
-        <div class="forms_select">
-          <div class="select">
-            <span class="icon-down_line"></span>
-            <select class="" name="" id="">
-              <option value="option">Seleccione su Actividad</option>
-              <option value="option">Actividad 1 </option>
-              <option value="option">Actividad 2</option>
-            </select>
-          </div>
-        </div>
-<!-- Categoria del producto -->
-      <p class="block__content__cont-tag ubuntu medium">
-            Categoria del producto:
-        </p>
-        <div class="forms_select">
-          <div class="select">
-            <span class="icon-down_line"></span>
-            <select class="" name="" id="">
-              <option value="option">Seleccione una categoria</option>
-              <option value="option">Categoria 1 </option>
-              <option value="option">Categoria 2</option>
-            </select>
-          </div>
-        </div>
-<!-- produccionr -->
-      <p class="block__content__cont-tag ubuntu medium">
-            Produccion principal:
-        </p>
-        <div class="form_login ">
-            <label class="item item-input input_login">
-
-                <input type="text" placeholder=" ">
-
-            </label>
-        </div>
-<!-- superficie -->
-      <p class="block__content__cont-tag ubuntu medium">
-            Superficie cultivada:
-        </p>
-        <div class="form_login ">
-            <label class="item item-input input_login">
-
-                <input type="text" placeholder=" ">
-
-            </label>
-        </div>
-
+    <div class="list paddingContent fontFrom ">
+    
         
-          <!-- <button class="button button-block button-balanced" type="submit" >Guardar</button> -->
-          <a href="#/home">
-           <button class="btn btn-primary btn-green">Guardar</button>
-          </a>
+      <div class=" row headerFrom">
+        <img class="imageProfile" src="img/iconPerfil.png">
+        <h5 class="textImageProfile">Añadir imagen de perfil</h4>    
+          
+        </div>
 
+
+      <h4>Informacion</h4>
+      <p class="titleForm">Nombre:</p>
+      <label class="item item-input borderForm">
+        <input type="text" placeholder="Ingrese su nombre completo" ng-model="userModel.name">
+      </label> 
+      <br>  
+      <p class="titleForm">Correo electronico:</p>
+      <label class="item item-input borderForm">
+        <input type="text" placeholder="Ingrese su correo electronico" ng-model="userModel.email">
+      </label> 
+      <br>
+      <p class="titleForm">Documento de identidad:</p>
+      <label class="item item-input borderForm">
+        <input type="text" placeholder="Ingrese su documento" ng-model="userModel.document">
+      </label> 
+      <br>  
+      <p class="titleForm">Contraseña:</p>
+      <label class="item item-input borderForm">
+        <input type="password" placeholder="Ingrese su contraseña" ng-model="userModel.password">
+      </label> 
+      <br>  
+
+
+
+
+      <h4>Informacion personal</h4>
+      <p class="titleForm">Nivel educativo:</p>
+      
+      <div class="select" >
+          <span class="arr"></span>
+          <select ng-model="userModel.education">
+            <option>Seleccione su nivel educativo</option>
+            <option>Dear Future Husband</option>
+            <option>Close Your Eyes</option>
+          </select>
       </div>
-    </form>
+      <br>
+      <br>
+
+      <p class="titleForm">Lugar de residencia :</p>
+      <label class="item item-input borderForm">
+        <input type="text" placeholder="Ingrese su lugar de residencia" ng-model="userModel.placeCity">
+      </label> 
+      <br>
+
+      <p class="titleForm">Genero:</p>
+      <div class="select" >
+          <span class="arr"></span>
+          <select ng-model="userModel.genero">
+            <option>Seleccione su género</option>
+            <option>Masculino</option>
+            <option>Femenino</option>
+          </select>
+      </div>
+      <br>
+      <br>  
+      
+      <p class="titleForm">Número celular:</p>
+      <label class="item item-input borderForm">
+        <input type="text" placeholder="Ingrese su número celular" ng-model="userModel.cellPhone">
+      </label> 
+      <br>
+
+      <h4>Actividad agropecuarioa </h4>
+      <p class="titleForm">Lista de produccion:</p>
+      <label class="item item-input borderForm">
+        <input type="text" placeholder="Produccion" ng-model="userModel.productionList">
+      </label> 
+      <br>  
+
+      <p class="titleForm">Pertenece a una asociación:</p>
+      <div class="select" >
+          <span class="arr"></span>
+          <select ng-model="userModel.asociation">
+            <option>SI / NO</option>
+            <option>Si</option>
+            <option>No</option>
+          </select>
+      </div>
+      <br>
+      <br>
+
+      <p class="titleForm">Actividad agrícola</p>
+      <div class="select" >
+          <span class="arr"></span>
+          <select ng-model="userModel.activity">
+            <option>Seleccione su actividad </option>
+            <option>Si</option>
+            <option>No</option>
+          </select>
+      </div>
+      <br>
+      <br>  
+
+      <p class="titleForm">Categoria del producto:</p>
+      <div class="select" >
+          <span class="arr"></span>
+          <select ng-model="userModel.category">
+            <option>Seleccine una categoria</option>
+            <option>Si</option>
+            <option>No</option>
+          </select>
+      </div>
+      <br>
+      <br>
+
+      <p class="titleForm">Producción principal:</p>
+      <label class="item item-input borderForm">
+        <input type="text" placeholder="Ingrese su nombre completo" ng-model="userModel.productionPricipal">
+      </label> 
+      <br>
+
+      <p class="titleForm">Superficie cultivada:</p>
+      <label class="item item-input borderForm">
+        <input type="text" placeholder="Ingrese su nombre completo" ng-model="userModel.superfice">
+      </label> 
+      <br>
+
+      <button class="button button-block button-balanced" ng-click="cleanStack()">
+          Guardar
+        </button >
+        
+    </div>
   </ion-content>
 </ion-view>
 

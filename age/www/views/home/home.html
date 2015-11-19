@@ -10,25 +10,42 @@
         <ion-nav-buttons side="right">
           <div class="profile" menu-toggle="right">
                 <span class="profile__text">Perfil</span>
-                <span class="profile__img">
-                  <span class="icon-profile"></span>
+                <!-- <span class="profile__img"> -->
+                 <!--  <span class="icon-profile"></span>
                 </span>
-                <span class="icon-right_line profile__arrow"></span>
+                <span class="icon-right_line profile__arrow"></span> -->
           </div>
         </ion-nav-buttons>
-      
+    
     </ion-nav-bar>
-      <ion-content>
+      <ion-content ng-controller="homeCtrl">
         <div class="search__input">
             <span class="icon icon-search"></span>
-            <input type="search" placeholder="Buscar">
+            <input type="search" placeholder="Buscar" ng-change="search()" ng-model="data.search">
+        </div> 
+  
+        <!-- Lista de resultados de busqueda -->
+        <div class="list_result" ng-repeat="airline in data.airlines">
+          <img src="img/Icon_Fertilizante" alt="">
+          
+          <a href="#/insumo" ng-click="pasId({{airline.IdInsumo}})">
+            <li class="item" >
+              {{airline.NombreInsumo}} {{airline.IdInsumo}}
+            </li>
+          </a>
         </div>
 
+        {{col}}
+
+        <!-- encabezado  -->
         <div align="center" >
           <p class="title_loginn">
               Encuentre los costos de los insumos</br> que necesita para su produccion en
           </p>
         </div>
+
+
+        <!-- select , departamento -->
         <div class="select">
           <span class="icon-down_line"></span>
           <select>
@@ -36,17 +53,20 @@
             <option>Tenjo</option>
           </select>
         </div>
+        
+        <!-- categorias  -->
+
         <div  aling="center" class="table_insumos">       
           <table>
-            <tr>
+            <tr> 
               <th> 
-                <a href="#/fertilizantes">
+                <a href="#/fertilizantes" ng-click="categoriaId(1)">
                   <img src="img/Icon_fertilizante.png" height="100" width="105"> </br>
                   <label>Fertilizantes </label>
                 </a>
               </th>
               <th class="right"> 
-                <a href="#/fertilizantes">
+                <a href="#/fertilizantes" ng-click="categoriaId(3)">
                   <img src="img/Icon_medicamentos.png" height="100" width="105"></br>
                   <label>Mecadimentos</br> veterinarios</label>
                 </a>
@@ -54,13 +74,13 @@
             </tr>
             <tr>
               <th> 
-                <a href="#/fertilizantes">
+                <a href="#/fertilizantes" ng-click="categoriaId(4)">
                   <img src="img/icon_vacunas.png" height="100" width="105"></br>
                   <label>Vacunas</label>
                 </a>
               </th>
               <th class="right"> 
-                <a href="#/fertilizantes">
+                <a href="#/fertilizantes" >
                  <img src="img/icon_plaguicidas.png" height="100" width="105"></br>
                  <label>Plagicidas</label>
                 </a>
@@ -72,31 +92,89 @@
       </ion-content>
   </ion-side-menu-content>
  
+ <!-- menu lateral derecho -->
   <ion-side-menu side="right">
-    <ion-header-bar class="bar">
-      <div align="center">
-        <span class="profile__img">
-      </div>
-      <div  menu-close>
-      cerrar<i class="ion-arrow-left-c"></i>
-      </div>
-    </ion-header-bar>
+    <div class=" bar-header ">
+       <header class="header agroinsumos">
+              <div class="branding center" align="center">
+                <img src="img/logo_insumos.png" height="42" width="126">
+              </div>
+          </header>
+    </div>
+
     <ion-content>
 
-      <h2 class="name">Pedro Fernandez</h2>
-      <h3 class="progreso_perfil">Su perfil esta 20% completado</h3>
+      <div class="fontFrom">  
+  
+  
 
-      <ion-list>
-        <ion-item menu-close href="#/tab/opciones">
-          Mi perfil
-        </ion-item>
-        <ion-item menu-close href="">
-            Mis favoritos
-        </ion-item>
-        <ion-item menu-close href="">
-          cerrar sesión
-        </ion-item>
-      </ion-list>
+        <div  ng-if="!existUser" class="contentLoginImageInitUser" >
+          <div class="startImageLogin"></div> 
+        </div>
+
+        <div class="headerDiv">
+
+          <div ng-if="existUser">
+
+            <center>
+              <img class="positionImageMenu" src="img/unProfile.jpg">
+            </center> 
+            
+            <div class="itemsMenuUserName"> Pedro Fernandez
+
+
+            </div>
+
+            <div class="itemsMenuUserNameText">
+              Su perfil contiene el 20% de la información
+            </div>
+            <br>
+            <div id="barStatus">
+              <div id="progress"></div>
+            </div>
+
+          </div>
+        </div>
+
+
+
+        <div ng-if="!existUser" class="padding">
+
+          <div class="textLogin textColorLogin padding">
+              No se encuentra registrado, por favor registrese
+          </div>
+          <br>
+          
+          <a href="#/registro">
+            <button menu-close 
+              class="button-balanced button button-block" 
+              ng-click="goTo(3)">Registrarse 
+            </button>
+          </a>
+        </div>
+
+
+
+        <div  ng-if="existUser" class="menuStyle">        
+          <div class="itemsMenu" menu-close  ng-click="goTo(1)">Mi perfil<hr></div>
+          
+          <div class="itemsMenu" menu-close  ng-click="goTo(2)">
+            <div class="ion-ios-star" style="color:#ff8400">
+              <span style="padding-left:5px;color:#59595c">Favoritos</span>
+            </div>
+            
+            <hr>
+          </div>    
+          
+          <div class="itemsMenu"menu-close  
+            style="color: #c73233" 
+            ng-click="closeSesion()">Cerrar Sesión
+          </div>
+          
+        </div>
+        
+      </div>
+
     </ion-content>
   </ion-side-menu>
 </ion-side-menus>
