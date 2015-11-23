@@ -9,18 +9,21 @@
 	</div>
 	<!-- contenido de login -->
 
-  	<ion-content ng-controller="loginCtrl">
+  <ion-content ng-controller="loginCtrl" class="fontFromLogin">
 
     <div class="contentLoginImage">
       <div class="startImageLogin"></div> 
     </div>
     
     <div class="paddingContent">
-
-      <div class="textLogin textColorLogin">
+    
+      <div class="textLogin textColorLogin" ng-if="existUser">
         Cree una cuenta única para AgroTeConecta, Agronet, AgroInsumos y  AgroNegocios en un solo paso: 
       </div>
-
+      
+      <div class="textLogin textColorLogin" ng-if="!existUser">
+       Si ya es usuario registrado, AgroInsumos y  AgroNegocios en un solo paso: 
+      </div>
       <br>
  
 
@@ -36,7 +39,7 @@
         <input 
           type="email" 
           placeholder="Ingrese su correo electrónico"
-          ng-model="formModel.email"  
+          ng-model="login.email"  
           id="email"
           name="email"
           required="required"
@@ -68,7 +71,7 @@
         >
           <input type="{{typeInput}}" 
             placeholder=" Ingrese su contraseña"
-            ng-model="formModel.password"  
+            ng-model="login.password"  
             id="password"
             name="password"
             required="required"
@@ -84,6 +87,11 @@
         Este campo es obligatorio
       </p>
       <br>
+
+
+
+
+
 
 
       <button 
@@ -104,12 +112,13 @@
         </button>
       </div>
 
-      <center 
-        class="textLogin textColorLogin" 
-        ng-show="!existUser">
-          <b ng-click="showAlert()"><u>He olvidado mi contraseña</u></b>
-      </center>
-      
+      <a href="#/olvidoContrasena">
+        <center 
+          class="textLogin textColorLogin" 
+          ng-show="!existUser">
+            <b ng-click="showAlert()"><u>He olvidado mi contraseña</u></b>
+        </center>
+      </a>
 
     </div>    
 

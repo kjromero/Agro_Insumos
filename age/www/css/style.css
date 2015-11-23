@@ -36,10 +36,8 @@ hr{
   border-bottom: 1px solid #CBCCCD;
 }
 
-select{
-  margin-right: 23px;
-  margin-left: 23px;
-}
+
+
 
 .addprecio{
   margin-top: 60px;
@@ -68,7 +66,7 @@ select{
 }  
 
 .borderForm{
-  border-color: green;
+  border-color: #e8b037;
   color: green;
 }
 .borderFormError{
@@ -154,6 +152,9 @@ select{
 .fontFromResult{
   margin-top: 100px;
 }
+.fontFromLogin{
+  margin-top: 70px;
+}
 
 .footerInit {
   position:absolute;
@@ -237,6 +238,10 @@ select{
 .branding{
   position: absolute;
   z-index: 100;
+}
+
+.paddingContent{
+  padding: 30px 30px;
 }
 
 .passwordView{
@@ -388,6 +393,10 @@ select{
   margin-top: 20px;
 }
 
+.titlebar{
+  font-size: 20px;
+}
+
 .titleForm{
   padding:  0px 30px;
   color: #636363;
@@ -416,11 +425,7 @@ select{
   text-align: left;
   margin-left: 0;
 }
-.select{
-  width: 100%;
-  margin-right: 23px;
-  text-align: left;
-}
+
 
 
 .startImage{
@@ -488,5 +493,4 @@ select{
 .cont-agroinsumos button{
   margin-top: 11px;
 }
-
-borderForm
+fontFromResult

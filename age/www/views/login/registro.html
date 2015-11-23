@@ -9,7 +9,7 @@
 	</div>
 	<!-- contenido de login -->
 
-  <ion-content ng-controller="loginCtrl">
+  <ion-content >
 
     <div align="center" class="p_bar">
     	<p class="title_loginn">
@@ -74,8 +74,7 @@
             
           </label>
 
-
-            <button class="col col-33  button button-small button-clear button-color-green passwordView input_login" style="background-color: white;" ng-click="viewPassword()">VerContraseña</button>
+            <Button type="button" class="col col-33  button button-small button-clear button-color-green passwordView input_login" style="background-color: white;" ng-click="viewPassword()">VerContraseña</Button>
 
           
         </div>
@@ -92,6 +91,8 @@
       <button type="submit"  class="btn btn-primary btn-green" ng-click="ingresar()" >Ingresar</button>
 
     </form >
+
+
     <div align="center" >
       <p class="plogin">
           Si ya es usuario de Agronet o de alguna de sus</br> 

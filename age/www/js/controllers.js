@@ -1,16 +1,5 @@
 var airlines = [{}];
 
-// airlines = airlines.sort(function(a, b) {
-
-// 	var airlineA = a.name.toLowerCase();
-// 	var airlineB = b.name.toLowerCase();
-
-// 	if(airlineA > airlineB) return 1;
-// 	if(airlineA < airlineB) return -1;
-// 	return 0;
-// });
-
-// Header enviados en peticion POST
 
 var headers = {
 	'Access-Control-Allow-Origin' : '*',
@@ -23,38 +12,36 @@ var headers = {
 
 var idCategoria = 0 ;
 var IdInsumos = 0;
+var municipio= 12;
+var desde= 0;
+var userLog = false;
 
 var URL = "http://192.168.1.134:8081/api/agroinsumo/";
+// http://186.155.199.197:8000/api/agroinsumo/Registro
 
 
 angular.module('proyect.controllers', [])
 
-
+ 
 // Login controller
-.controller('loginCtrl', function($scope, $http, API,$state) {
+.controller('loginCtrl', function($scope, $http ,$state) {
 
-  $scope.API = API;
+  // http://192.168.1.134:8081/api/agro/IniciarSesion
+
 
   // datos ingresados por el usuario
   $scope.login = {
-  	Email : '',
-  	clave: ''
+  	email : '',
+  	password: ''
   };
 
-  // servicio Login .
-  $scope.ingresar = function(){
-	$http({
-	    method: 'POST',
-	    url: $scope.API.url+'IniciarSesion',
-	    data: { "Email":"pepepe", "Password": "123456"},
-	    headers:headers,
-	}).then(function(result) {
-	           console.log("la respuesta es", result.data.Texto);
-	       }, function(error) {
-	           console.log(error);
-			       console.log(" respuesta NEGATIVA");
-        });
+  var loguear = function(){
+   
   }
+
+
+
+
 
   //form login/rregistro
   $scope.existUser = true;
@@ -62,6 +49,11 @@ angular.module('proyect.controllers', [])
   $scope.typeInput = "password"
 
   var stateViewPassword = true;
+
+  $scope.existUserAction = function(){
+    $scope.existUser = false;
+    $scope.textButton =  "Ingresar"
+  }
 
   $scope.viewPassword = function(){
     if (stateViewPassword) {
@@ -79,35 +71,154 @@ angular.module('proyect.controllers', [])
 
     console.log(valid);
 
+    //validamos que los datos vengan correctos
     if (valid) {
-      $state.go('registro-result');
+      //validamos en  que vista estamos 
+      if ($scope.existUser) {
+        //si estanmos en registro, registramos los datos 
+        $http({
+            method: 'POST',
+            url: URL+'/Registro',
+            data: { 
+                  "Correo":$scope.login.email,
+                  "Clave" :$scope.login.password,
+                  "AppId" :"0",
+                  "TokenPush": "q239890afa8904"
+                  },
+            headers:headers,
+         }).then(function(result) {
+                  console.log(result);
+                  if (result.data.Estado == 1) {
+                    alert(result.data.Texto);
+                    userLog = true;
+                    $state.go('registro-result');
+                  }else if(result.data.Estado == 0){
+                    alert(result.data.Texto +" ingrese por favor");
+                    console.log(result);
+                  }
+               }, function(error) {
+                   console.log(error);
+                   alert("Ha ocurrido un error");
+              });
 
+      }else if (!$scope.existUser){
+        //si estanmos en registro, ingresamos el perfil
+        $http({
+            method: 'POST',
+            url: URL+'/IniciarSesion',
+            data: { 
+                  "Email":$scope.login.email,
+                  "password" :$scope.login.password,
+                  "AppId" :"0",
+                  "TokenPush": "q239890afa8904"
+                  },
+            headers:headers,
+         }).then(function(result) {
+                  console.log(result);
+                  if (result.data.Estado == 1) {
+                    alert(result.data.Texto);
+                    userLog = true;
+                    $state.go('registro-result');
+                  }else if(result.data.Estado == 0){
+                    alert(result.data.Texto);
+                    console.log(result);
+                  }
+               }, function(error) {
+                   console.log(error);
+                   alert("ocurrio error");
+                  return error;
+              });
+      }      
     } else {
-      alert("Verifique FUCKS!! sus datos");
+      alert("Verifique sus datos");
     }
 
   }
   
-
   
 })
 
-// .controller('homeCtrl', ['$scope', 'InsumoService', function($scope, InsumoService) {
+//controlador de vista olvidoContrasena
+.controller('olvidoContrasenaCtrl', function($scope, $http, API,$state) {
+
+  $scope.errorEmail = false;
+  $scope.enviado = false;
+
+  $scope.textButton = "Enviar";
+
+    $scope.formModel = {
+      email : ''
+    };
+
+
+  // http://localhost:50145/api/AgroTeConecta/Olvido
+
+  $scope.recuperarContrasena = function(){
+    
+    if (!$scope.formModel.email == " ") {
+    $http({
+        method: 'POST',
+        url: 'http://192.168.1.134:8081/api/AgroTeConecta/Olvido',
+        data: { "Correo":$scope.formModel.email},
+        headers:headers,
+      }).then(function(result) {
+            
+             if (result.data.Estado == 0) {
+                $scope.errorEmail = true;
+             }else if (result.data.Estado == 1) {
+                $scope.enviado = true;
+             }
+         }, function(error) {
+             console.log(error);
+             console.log(" respuesta NEGATIVA");
+      });
+      
+    }else{
+      alert("el campo no puede estar vacio");
+    };
+
+
+  }
+  
+})
+
+
+
+
+
+
+
+
 
 //controlador categorias
 .controller('categoriaCtrl', function($scope, InsumoService ) {
-  // $scope.API = API;
-  alert(idCategoria);
-  $scope.insumos ={};
 
+  //Obtener imagen de la categoria
+  $scope.imgCategoria = obtenerImgCategoria(idCategoria);
+
+  $scope.insumos ={};
   console.log(idCategoria);
 
   //poblar lista  
-  InsumoService.searchAirlines("", idCategoria).then(
-    function(matches) {
-      $scope.insumos = matches;
+ 
+
+  $scope.loadMore = function(){
+    console.log("va en : "+desde);
+    if ( desde == 15 ) {
+       $scope.noMoreItemsAvailable = true;
     }
-  )
+     InsumoService.searchAirlines("", idCategoria).then(
+        function(matches) {
+
+          $scope.insumos = matches;
+        }
+      )
+     
+    desde=desde+1;
+    $scope.$broadcast('scroll.infiniteScrollComplete');  
+  }
+
+
 
     //Funcion Autocompletable dentro de categoria
     $scope.data = {  "searchInCategoria" : '' };
@@ -115,11 +226,15 @@ angular.module('proyect.controllers', [])
 
     $scope.searchInCategoria = function() {
 
-      InsumoService.searchAirlines($scope.data.searchInCategoria, idCategoria).then(
-        function(matches) {
-          $scope.data.airlines = matches;
-        }
-      )
+      if (!$scope.data.searchInCategoria == " ") {
+        InsumoService.searchAirlines($scope.data.searchInCategoria, idCategoria).then(
+          function(matches) {
+            $scope.data.airlines = matches;
+          }
+        )
+      }else{
+      $scope.data.airlines = [];
+      }  
     }
 
     //obtener id de insumo
@@ -127,7 +242,9 @@ angular.module('proyect.controllers', [])
       IdInsumos = idInsumo ;
     }
 
-    alert(idCategoria);
+   //Obtener titulo de la categoria 
+   $scope.nameCategoria = obtenerNameCategoria(idCategoria);
+    
 })
 
 
@@ -135,7 +252,9 @@ angular.module('proyect.controllers', [])
 
 .controller('homeCtrl', ['$scope', 'InsumoService', function($scope, InsumoService) {
 
-
+  $scope.userLog = userLog;
+  //Obtener imagen de la categoria
+  
 	// var url = $scope.API.url;
   $scope.categoriaId = function(categoriaId){
       idCategoria = categoriaId;
@@ -149,10 +268,18 @@ angular.module('proyect.controllers', [])
   //Peticion de busqueda
   $scope.search = function() {
 
+
     if (!$scope.data.search == " ") {
       InsumoService.searchAirlines($scope.data.search, idCategoria).then(
         function(matches) {
+          
+          angular.forEach(matches, function(value, key){
+              value["NameImagen"] = obtenerImgCategoria(value.IdInsumo);
+              
+              console.log(matches);
+          });
           $scope.data.airlines = matches;
+          // $scope.imgCategoria = obtenerImgCategoria($scope.data.airlines.IdInsumo);
         }
       )
     }else{
@@ -161,11 +288,16 @@ angular.module('proyect.controllers', [])
 
   }
 
+
   //obtener id de insumo
   $scope.pasId = function(idInsumo){
     IdInsumos = idInsumo ;
   }
 
+  $scope.closeSesion = function(){
+    userLog = false;
+    $scope.userLog = false;
+  }
 
 
 }])
@@ -174,10 +306,15 @@ angular.module('proyect.controllers', [])
 //controlador Detalle insumo
 .controller('insumoCtrl', function($scope , $http) {
 
+
+  //Obtener imagen de la categoria
+  $scope.imgCategoria = obtenerImgCategoria(idCategoria);
+  //Obtener titulo de la categoria 
+  $scope.nameCategoria = obtenerNameCategoria(idCategoria);
+
   $scope.detalleInsumo = {};
   $scope.groups = [];
 
-  alert("el insumo que enviamos es ====="+ IdInsumos);
   console.log("el insumo que enviamos es ====="+ IdInsumos);
   //servicio obtener detalle de insumo 
   $http({
@@ -202,7 +339,7 @@ angular.module('proyect.controllers', [])
           console.log(error);
   });
 
-
+    //vistas desplegables
     $scope.toggleGroup = function (group) {
         if ($scope.isGroupShown(group)) {
             $scope.shownGroup = null;
@@ -214,6 +351,7 @@ angular.module('proyect.controllers', [])
         return $scope.shownGroup === group;
     };   
 
+    //le fue util la informacion 
     $scope.yea = function(numero){
       if (numero == 1) {
         alert("Si");
@@ -223,9 +361,9 @@ angular.module('proyect.controllers', [])
       }
     }
 
+  
 
 })
-
 
 
 
@@ -236,6 +374,7 @@ angular.module('proyect.controllers', [])
 
     // $scope.API = API;
 
+   
 
     var searchAirlines = function(searchFilter , idCategoria) {
          
@@ -278,4 +417,72 @@ angular.module('proyect.controllers', [])
         searchAirlines : searchAirlines
 
     }
-});
+})
+
+
+//retorna el Nombre de la categoria segun el id
+var obtenerNameCategoria = function(idCategoria) {
+  Categoria1 = "Fertilizantes";
+  Categoria2 = "Medicamentos Veterinarios";
+  Categoria3 = "Vacunas ";
+  Categoria4 = "Plagicidas";
+  categoria = "";
+
+  switch(idCategoria) {
+
+    case 1:
+        categoria = Categoria1;
+        break;
+
+    case 2:
+        categoria = Categoria4;
+        break;
+
+    case 3:
+        categoria = Categoria2;
+        break;
+
+    case 4:
+        categoria = Categoria3;
+        break;  
+
+    default:
+        categoria = " ";
+        break;
+  }
+   return categoria;
+}
+
+
+//retorna la imagen de la categoria segun el id
+var obtenerImgCategoria = function(idCategoria) {
+  Imagen1 = "Icon_fertilizante";
+  Imagen2 = "Icon_medicamentos";
+  Imagen3 = "icon_vacunas";
+  Imagen4 = "icon_plaguicidas";
+  Imagen = "";
+
+  switch(idCategoria) {
+
+    case 1:
+        Imagen = Imagen1;
+        break;
+
+    case 2:
+        Imagen = Imagen4;
+        break;
+
+    case 3:
+        Imagen = Imagen2;
+        break;
+
+    case 4:
+        Imagen = Imagen3;
+        break;  
+
+    default:
+        Imagen = " ";
+        break;
+  }
+  return Imagen;
+};

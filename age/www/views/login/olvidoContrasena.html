@@ -1,0 +1,113 @@
+<ion-view view-title="" hide-back-button="false">
+<!-- Header de login -->
+	<div class=" bar-header ">
+		 <header class="header agroinsumos">
+	          <div class="branding center" align="center">
+	            <img src="img/logo_insumos.png" height="42" width="126">
+	          </div>
+	      </header>
+	</div>
+	<!-- contenido de login -->
+
+  	<ion-content class="fontFromLogin">
+
+    
+    <div class="paddingContent" ng-if="!enviado">
+
+      <div class="textLogin textColorLogin">
+        ¿Olvido su Contraseña ?
+      </div>
+
+      <br>
+ 
+
+
+      <form ng-submit="onSubmit(theForm.$valid)" name="theForm" novalidate="novalidate" >
+          
+          <p class="textColorLogin textLoginMin">Ingrese su correo electrónico:</p>
+          <label class="item item-input "
+
+          ng-class="{
+            'borderForm': theForm.email.$valid && !theForm.$pristine,
+            'borderFormError': !theForm.email.$valid && !theForm.$pristine,
+          }"      >
+            <input  
+              type="email" 
+              placeholder="Ingrese su correo electrónico"
+              ng-model="formModel.email"  
+              id="email"
+              name="email"
+              required="required"
+            >
+          </label> 
+          <p 
+            class="textColorLogin textLoginMin marginAuxTab" 
+            ng-show="theForm.email.$error.required && (!theForm.$pristine || theForm.$submitted)">
+            Este campo es obligatorio
+          </p>
+
+          <p 
+            class="textColorLogin textLoginMin marginAuxTab" 
+            ng-show="theForm.email.$error.email && (!theForm.$pristine || theForm.$submitted)">
+            Esta no es una opcion de Correo Electornico
+          </p>
+
+          <p ng-if="errorEmail"
+            class="textColorLogin textLoginMin marginAuxTab">
+            El correo no se encuentra registrado 
+          </p>
+
+
+          <br>
+
+
+          <button 
+            type="submit"  
+            class="button-balanced button button-block" ng-click="recuperarContrasena()" >{{textButton}}
+          </button> 
+          <br>
+      </form >   
+    </div>   
+
+
+    <div class="paddingContent" ng-if="enviado"> 
+        
+      <div class="textLogin textColorLogin">
+        <strong> 
+          Hemos enviado un correro de <br>confirmacion 
+        </strong>
+      </div>
+
+      <br>
+      <br>
+      <br>
+
+      <div class="textLogin textColorLogin">
+        En el correo encontrara un link para <br>restaurar su contraseña.
+      </div>
+      <br>
+      <br>
+      <br>
+
+      <div class="textLogin textColorLogin">
+        Asegurese que el correo no haya  <br> llegado a la carpeta de spam.
+      </div>
+       
+       <br>
+        <br>
+        <br>
+      
+      <a href="#/login">
+        <button 
+            class="button-balanced button button-block"  >Continuar
+        </button> 
+      </a>
+    </div>
+
+
+
+
+
+  </ion-content>
+
+</ion-view>

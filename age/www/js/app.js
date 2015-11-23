@@ -39,7 +39,6 @@ angular.module('proyect',
 
   .state('registro',{
     url:'/registro',
-    controller: 'loginCtrl',
     templateUrl: 'views/login/registro.html'
   })
 
@@ -51,10 +50,18 @@ angular.module('proyect',
   
   .state('login',{
     url:'/login',
+    controller: 'loginCtrl',
     templateUrl: 'views/login/login.html'
+  })
+
+  .state('olvidoContrasena',{
+    url:'/olvidoContrasena',
+    controller: 'olvidoContrasenaCtrl',
+    templateUrl: 'views/login/olvidoContrasena.html'
   })
  
   .state('home',{
+    cache: false,
     url:'/home',
     controller: 'homeCtrl',
     templateUrl: 'views/home/home.html'
@@ -90,6 +97,7 @@ angular.module('proyect',
   })
 
   .state('fertilizantes',{
+    cache: false,
     url:'/fertilizantes',
     controller: 'categoriaCtrl',
     templateUrl: 'views/categorias/fertilizantes/fertilizantes.html'
@@ -106,6 +114,7 @@ angular.module('proyect',
   })
 
   .state('insumo',{
+    cache: false,
     url:'/insumo',
     controller: 'insumoCtrl',
     templateUrl: 'views/categorias/insumo/insumo.html'

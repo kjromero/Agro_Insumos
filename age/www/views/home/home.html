@@ -26,16 +26,16 @@
   
         <!-- Lista de resultados de busqueda -->
         <div class="list_result" ng-repeat="airline in data.airlines">
-          <img src="img/Icon_Fertilizante" alt="">
-          
-          <a href="#/insumo" ng-click="pasId({{airline.IdInsumo}})">
-            <li class="item" >
-              {{airline.NombreInsumo}} {{airline.IdInsumo}}
-            </li>
-          </a>
+          <figure class="internal-title__body__prof">
+            <a href="#/insumo" ng-click="pasId({{airline.IdInsumo}})">
+              <li class="item" >
+                <img src="img/{{airline.NameImagen}}.png" alt="">
+                {{airline.NombreInsumo}} {{airline.IdInsumo}}
+              </li>
+            </a>
+          </figure>
         </div>
 
-        {{col}}
 
         <!-- encabezado  -->
         <div align="center" >
@@ -80,7 +80,7 @@
                 </a>
               </th>
               <th class="right"> 
-                <a href="#/fertilizantes" >
+                <a href="#/fertilizantes" ng-click="categoriaId(2)" >
                  <img src="img/icon_plaguicidas.png" height="100" width="105"></br>
                  <label>Plagicidas</label>
                 </a>
@@ -108,13 +108,13 @@
   
   
 
-        <div  ng-if="!existUser" class="contentLoginImageInitUser" >
+        <div  ng-if="!userLog" class="contentLoginImageInitUser" >
           <div class="startImageLogin"></div> 
         </div>
 
         <div class="headerDiv">
 
-          <div ng-if="existUser">
+          <div ng-if="userLog">
 
             <center>
               <img class="positionImageMenu" src="img/unProfile.jpg">
@@ -123,7 +123,7 @@
             <div class="itemsMenuUserName"> Pedro Fernandez
 
 
-            </div>
+            </div> 
 
             <div class="itemsMenuUserNameText">
               Su perfil contiene el 20% de la información
@@ -138,14 +138,14 @@
 
 
 
-        <div ng-if="!existUser" class="padding">
+        <div ng-if="!userLog" class="padding">
 
           <div class="textLogin textColorLogin padding">
               No se encuentra registrado, por favor registrese
           </div>
           <br>
           
-          <a href="#/registro">
+          <a href="#/login">
             <button menu-close 
               class="button-balanced button button-block" 
               ng-click="goTo(3)">Registrarse 
@@ -155,7 +155,7 @@
 
 
 
-        <div  ng-if="existUser" class="menuStyle">        
+        <div  ng-if="userLog" class="menuStyle">        
           <div class="itemsMenu" menu-close  ng-click="goTo(1)">Mi perfil<hr></div>
           
           <div class="itemsMenu" menu-close  ng-click="goTo(2)">

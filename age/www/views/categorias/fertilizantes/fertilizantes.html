@@ -5,7 +5,7 @@
         <div class="internal-title__header with-scroll">
           <a href="#/home">
             <div class="go-back">
-              <span class="go-back__icon">Fertilizantes</span>
+              <span class="go-back__icon titlebar">{{nameCategoria}}</span>
             </div>
           </a>
         </div>
@@ -18,12 +18,19 @@
   </div>
 
   <!-- Lista de resultados de busqueda -->
-  <div class="list_result">
-    <img src="" alt="">
-    <a href="#/insumo" ng-click="pasId({{insumo.IdInsumo}})">
-      <li class="item" ng-repeat="airline in data.airlines">{{airline.NombreInsumo}}</li>
-    </a>
-  </div>
+  
+  <div class="list_result" ng-repeat="airline in data.airlines">
+      <img src="img/{{imgCategoria}}.png" alt="">
+      
+      <a href="#/insumo" ng-click="pasId({{airline.IdInsumo}})">
+        <li class="item" >
+          {{airline.NombreInsumo}} {{airline.IdInsumo}}
+        </li>
+      </a>
+    </div>
+
+
+
 
   <!-- Geolocalizacion  -->
 	<div class="select ">
@@ -68,14 +75,14 @@
               <span>${{insumo.CostoDepartamental}}</span>
             </p>
           </div>
-          <a href="#/insumo" ng-click="pepo({{insumo.IdInsumo}})">
+          <a href="#/insumo" ng-click="pasId({{insumo.IdInsumo}})">
 		      <button class="btn btn-primary btn-green" >
 		        Ver mas
             {{insumo.IdInsumo}}
 		      </button>
 	      </a>
         </div>
-    </section>
-
+  </section>
+  <ion-infinite-scroll icon="ripple" ng-if="!noMoreItemsAvailable" on-infinite="loadMore()" distance="2"></ion-infinite-scroll>
 </ion-content>
 </ion-view>
