@@ -1,0 +1,205 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar headeri agroinsumos">
+       <!-- header agroinsumos -->
+       
+        <div class="branding"> 
+          <img src="img/icon_insumos.png" height="42" width="126">
+        </div>
+        
+        <ion-nav-buttons side="right">
+          <div class="profile" menu-toggle="right">
+                <span class="profile__text">Perfil</span>
+                <!-- <span class="profile__img"> -->
+                 <!--  <span class="icon-profile"></span>
+                </span>
+                <span class="icon-right_line profile__arrow"></span> -->
+          </div>
+        </ion-nav-buttons>
+         
+    </ion-nav-bar>
+      <ion-content ng-controller="homeCtrl">
+        <div class="search__input">
+            <span class="icon icon-search"></span>
+            <input type="search" placeholder="Buscar" ng-change="search()" ng-model="data.search">
+        </div> 
+  
+        <!-- Lista de resultados de busqueda -->
+        <div class="list_result" ng-repeat="airline in data.airlines">
+          <figure class="internal-title__body__prof">
+            <a href="#" 
+            ng-click="goToInsumo({{airline.IdInsumo}}, {{airline.IdGeografia}}, {{airline.IdPresentacionProducto}})">
+              <li class="item" >
+                <img src="img/{{airline.NameImagen}}.png" alt="">
+                {{airline.NombreInsumo}} 
+                <small class="fontSmall">
+                  {{airline.Cantidad}} {{airline.UnidadPresentacion}}<!-- {{airline.IdInsumo}} {{airline.CategoriaId}} -->
+                </small>
+              </li>
+            </a>
+          </figure>
+        </div>
+
+
+        <!-- encabezado  -->
+        <div align="center" >
+          <p class="title_loginn">
+              Encuentre los costos de los insumos</br> que necesita para su produccion en
+          </p>
+        </div>
+
+
+        <!-- select , departamento -->
+        <div class="select">
+          <span class="icon-down_line"></span>
+          <select>
+            <option>Tunja</option>
+            <option>Tenjo</option>
+          </select>
+        </div>
+        
+        <!-- categorias  -->
+
+        <div  aling="center" class="table_insumos">       
+          <table>
+            <tr> 
+              <th> 
+                <a href="#/fertilizantes" ng-click="categoriaId(1)">
+                  <img src="img/Icon_fertilizante.png" height="100" width="105"> </br>
+                  <label>Fertilizantes </label>
+                </a>
+              </th>
+              <th class="right"> 
+                <a href="#/fertilizantes" ng-click="categoriaId(3)">
+                  <img src="img/Icon_medicamentos.png" height="100" width="105"></br>
+                  <label>Mecadimentos</br> veterinarios</label>
+                </a>
+              </th>
+            </tr>
+            <tr>
+              <th> 
+                <a href="#/fertilizantes" ng-click="categoriaId(4)">
+                  <img src="img/icon_vacunas.png" height="100" width="105"></br>
+                  <label>Vacunas</label>
+                </a>
+              </th>
+              <th class="right"> 
+                <a href="#/fertilizantes" ng-click="categoriaId(2)" >
+                 <img src="img/icon_plaguicidas.png" height="100" width="105"></br>
+                 <label>Plagicidas</label>
+                </a>
+              </th>
+            </tr>
+          </table>
+        </div>
+ 
+      </ion-content>
+  </ion-side-menu-content>
+ 
+ <!-- menu lateral derecho -->
+  <ion-side-menu side="right">
+
+    <div class=" bar-header " ng-if="!userLog">
+       <header class="header agroinsumos">
+              <div class="branding center" align="center">
+                <img src="img/logo_insumos.png" height="42" width="126">
+              </div>
+          </header>
+    </div>
+
+    <ion-content>
+
+      <!-- contenido logueado -->
+      <div class="" ng-if="userLog">  
+
+        <div class="headerDiv">
+          <div>
+            <center>
+              <img class="positionImageMenu" src="img/iconPerfil.png">
+            </center>
+            
+            <div class="itemsMenuUserName"> Pedro Fernandez
+
+
+            </div> 
+
+            <div class="itemsMenuUserNameText">
+              Su perfil contiene el 20% de la información
+            </div>
+            <br>
+            <div id="barStatus">
+              <div id="progress"></div>
+            </div>
+
+          </div>
+        </div>
+  
+
+        <div   class="menuStyle">     
+          <a href="#/tab/opciones" >   
+            <div class="itemsMenu" menu-close  ng-click="goTo(1)">Mi perfil<hr></div>
+          </a>
+          <a href="#/favoritos">
+            <div class="itemsMenu" menu-close  ng-click="goTo(2)">
+              <div class="ion-ios-star" style="color:#ff8400">
+                <span style="padding-left:5px;color:#59595c">Favoritos</span>
+              </div>
+              
+              <hr>
+            </div>   
+          </a> 
+          <a href="#/publicaciones">
+            <div class="itemsMenu" menu-close  ng-click="">Mis Publicaciones<hr></div>
+          </a>
+
+          <div class="itemsMenu"menu-close  
+            style="color: #c73233" 
+            ng-click="closeSesion()">Cerrar Sesión
+          </div>
+          
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        
+        <div class="contentSideMenuImage">
+          <div class="startImageLogin"></div> 
+        </div>
+
+        </div>
+        
+      </div>
+
+
+
+
+
+
+      <!-- Contenido registrese -->
+      <div ng-if="!userLog" cla0ss="fontFrom">
+         <div  class="contentLoginImageInitUser" >
+            <div class="startImageLogin"></div> 
+          </div>
+
+          <div  class="menuStyle">
+
+            <div class="textLogin textColorLogin padding">
+                No se encuentra registrado, por favor registrese
+            </div>
+            <br>
+            
+            <a href="#/login">
+              <button menu-close 
+                class="button-balanced button button-block" 
+                ng-click="goTo(3)">Registrarse 
+              </button>
+            </a>
+          </div>
+      </div>
+      
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>
+
+

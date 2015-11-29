@@ -1,0 +1,70 @@
+.dropdown
+	position: relative
+	list-style: none
+	color: $agroteconecta-purple
+	margin: 0
+	padding: 0
+	background: white
+	.text-block
+		margin-bottom: 1em 
+	.text-bold
+		font-family: $second-font
+		font-weight: 700
+		line-height: 32px
+	.text-small
+		font-family: $second-font
+		font-weight: 200
+		font-size: 14px
+	.text-small-bold
+		font-family: $second-font
+		font-weight: 500
+		font-size: 14px
+		line-height: 24px
+	hr
+		border: none
+		padding: 0.5em 0
+		border-bottom: 1px solid #CBCCCD
+
+.dropdown__tap.open
+	.dropdown__title
+		padding: 15px 1.5em
+		border-bottom: none
+		border-bottom-right-radius: 0
+		border-bottom-left-radius: 0
+	.dropdown__title:after
+		content: "\e602"
+		transform: rotate(-180deg)
+	.dropdown__content
+		border-top: none
+
+.dropdown__title
+	position: relative
+	margin-top: -1px
+	padding: 14px 1.5em 
+	border: 1px solid #CBCCCD
+	border-radius: 2px
+	color: currentColor
+	font-family: $second-font
+	transition: all 0.5s
+	
+	&.right:after
+		content: "\e602"
+		transform: rotate(-90deg)
+		
+	&.bold
+		font-weight: 700
+	&:after
+		content: "\e602"
+		font-family: icomoon
+		font-size: 10px
+		top: 0
+		line-height: 50px
+		display: inline-block
+		position: absolute
+		right: 15px
+
+.dropdown__content
+	border: 1px solid #CBCCCD
+	padding: 0 1.5em 1em
+	font-size: $fz-medium
+	color: $text-main

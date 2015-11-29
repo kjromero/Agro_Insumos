@@ -1,0 +1,94 @@
+.header
+  height: 60px
+  margin-bottom: 1rem
+  color: white
+  font-family: $second-font
+  position: relative
+  &:after
+    content: ' '
+    display: table
+    clear: both
+  &.agroteconecta
+    background-color: $agroteconecta-main
+  &.agroinsumos
+    background-color: $agroinsumos-main
+  &.agronegocios
+    background-color: $agronegocios-main
+  &.with-scroll
+    height: 45px
+    .branding
+      padding: 4px 0
+    .help-hight
+      &:before
+        height: 42px
+    .profile__text,
+    .profile__img,
+    .profile__arrow
+      line-height: 46px
+
+      
+  .help-hight
+    position: absolute
+    left: 100%
+    top: 50%
+    transform: translateY(-50%)
+    margin-left: 0.3rem
+    padding-left: 0.3rem
+    color: $red-main
+    &:before
+      content: ''
+      height: 56px
+      width: 1px
+      background-color: $red-main
+      position: absolute
+      top: 50%
+      left: 0
+      transform: translateY(-50%)
+  .help-width
+    position: absolute
+    bottom: -2rem
+    right: 0
+    color: $red-main
+
+  .branding
+    float: left
+    padding: 7px 0
+
+  .profile
+    float: right
+    height: 100%
+    position: relative
+    &__text,
+    &__img
+      height: 100%
+      display: inline-block
+      vertical-align: middle
+      line-height: 60px
+
+    &__text
+      margin-right: 0.8rem
+    &__img
+      position: relative
+      height: 28px
+      width: 28px
+      background: white
+      border-radius: 50%
+      text-align: center
+      margin-right: 32px
+      overflow: hidden
+      border: 1px solid #59595c
+      .icon-profile
+        position: absolute
+        color: #59595c
+        top: 50%
+        left: 50%
+        font-size: 24px
+        transform: translate(-50%, -34%)
+    &__arrow
+      position: absolute
+      top: 0
+      right: 10px
+      line-height: 60px
+      font-size: 10px
+
+

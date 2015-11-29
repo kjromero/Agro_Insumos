@@ -1,0 +1,141 @@
+<ion-view view-title="Mi Perfil" hide-back-button="false">
+  <div class="bar-header actionbar">
+   <header class="header agroinsumos">
+      <a href="#/home" class="anchor">
+        <span class="anchor__left icon-left_line"></span>Regresar
+      </a>
+      <h1 class="title_perfil">Mi Perfil</h1>
+    </header>
+  </div>
+  <ion-content class="gris">
+
+    <div class="list paddingContent fontFrom ">
+    
+        
+      <div class=" row headerFrom">
+        <img class="imageProfile" src="img/iconPerfil.png">
+        <h5 class="textImageProfile">Añadir imagen de perfil</h4>    
+          
+        </div>
+ 
+      <h4>Informacion</h4>
+      <p class="titleForm">Nombre:</p>
+      <label class="item item-input borderForm">
+        <input type="text" placeholder="Ingrese su nombre completo" ng-model="userModel.name">
+      </label> 
+      <br>  
+      <p class="titleForm">Correo electronico:</p>
+      <label class="item item-input borderForm">
+        <input type="text" placeholder="Ingrese su correo electronico" ng-model="userModel.email">
+      </label> 
+      <br>
+      <p class="titleForm">Documento de identidad:</p>
+      <label class="item item-input borderForm">
+        <input type="text" placeholder="Ingrese su documento" ng-model="userModel.documentId">
+      </label> 
+      <br>
+
+
+
+
+      <h4>Informacion personal</h4>
+      <p class="titleForm">Nivel educativo:</p>
+      
+      <div class="select" >
+          <span class="arr"></span>
+          <select ng-model="userModel.education">
+            <option>Seleccione su nivel educativo</option>
+            <option>Dear Future Husband</option>
+            <option>Close Your Eyes</option>
+          </select>
+      </div>
+      <br>
+      <br>
+
+      <p class="titleForm">Lugar de residencia :</p>
+      <label class="item item-input borderForm">
+        <input type="text" placeholder="Ingrese su lugar de residencia" ng-model="userModel.placeCity">
+      </label> 
+      <br>
+
+      <p class="titleForm">Genero:</p>
+      <div class="select" >
+          <span class="arr"></span>
+          <select ng-model="userModel.genero">
+            <option>Seleccione su género</option>
+            <option>Masculino</option>
+            <option>Femenino</option>
+          </select>
+      </div>
+      <br>
+      <br>  
+       
+      <p class="titleForm">Número celular:</p>
+      <label class="item item-input borderForm">
+        <input type="text" placeholder="Ingrese su número celular" ng-model="userModel.cellPhone">
+      </label> 
+      <br>
+
+      <h4>Actividad agropecuarioa </h4>
+      <p class="titleForm">Lugar de produccion:</p>
+      <label class="item item-input borderForm">
+        <input type="text" placeholder="Produccion" ng-model="userModel.productionList">
+      </label> 
+      <br>  
+
+      <p class="titleForm">Pertenece a una asociación:</p>
+      <div class="select" >
+          <span class="arr"></span>
+          <select ng-model="userModel.asociation">
+            <option>SI / NO</option>
+            <option>Si</option>
+            <option>No</option>
+          </select>
+      </div>
+      <br>
+      <br>
+
+      <p class="titleForm">Actividad agrícola</p>
+      <div class="select" >
+          <span class="arr"></span>
+          <select ng-model="userModel.activity">
+            <option>Seleccione su actividad </option>
+            <option>Si</option>
+            <option>No</option>
+          </select>
+      </div>
+      <br>
+      <br>  
+
+      <p class="titleForm">Categoria del producto:</p>
+      <div class="select" >
+          <span class="arr"></span>
+          <select ng-model="userModel.category">
+            <option>Seleccine una categoria</option>
+            <option>Si</option>
+            <option>No</option>
+          </select>
+      </div>
+      <br>
+      <br>
+
+      <p class="titleForm">Producción principal:</p>
+      <label class="item item-input borderForm">
+        <input type="text" placeholder="Ingrese su nombre completo" ng-model="userModel.productionPricipal">
+      </label> 
+      <br>
+
+      <p class="titleForm">Superficie cultivada:</p>
+      <label class="item item-input borderForm">
+        <input type="text" placeholder="Ingrese su nombre completo" ng-model="userModel.superfice">
+      </label> 
+      <br>
+        <!-- ng-click="cleanStack()" -->
+      <button class="button button-block button-balanced" ng-click="actualizarPerfil()" >
+          Guardar
+        </button >
+        
+    </div>
+  </ion-content>
+</ion-view>
+

@@ -1,0 +1,103 @@
+ <ion-view view-title=" Fertilizantes"  hide-back-button="false">
+
+<div class="bar-header actionbar">
+	 <header class="header agroinsumos">
+        <div class="internal-title__header with-scroll">
+          <a href="#/home">
+            <div class="go-back">
+              <span class="go-back__icon titlebar">{{nameCategoria}}</span>
+            </div>
+          </a>
+        </div>
+    </header>
+</div> 
+<ion-content ng-controller="categoriaCtrl">
+	<div class="search__input">
+   <span class="icon icon-search"></span>
+   <input type="search" placeholder="Buscar" ng-change="searchInCategoria()" ng-model="data.searchInCategoria">
+  </div>
+   
+ <!-- Lista de resultados de busqueda -->
+        <!-- Lista de resultados de busqueda -->
+        <div class="list_result" ng-repeat="airline in data.airlines">
+          <figure class="internal-title__body__prof">
+            <a href="#" 
+            ng-click="goToInsumo({{airline.IdInsumo}}, {{airline.IdGeografia}}, {{airline.IdPresentacionProducto}})">
+              <li class="item" >
+                <img src="img/{{imgCategoria}}.png" alt="">
+                {{airline.NombreInsumo}} 
+                <small class="fontSmall">
+                  {{airline.Cantidad}} {{airline.UnidadPresentacion}}<!-- {{airline.IdInsumo}} {{airline.CategoriaId}} -->
+                </small>
+              </li>
+            </a>
+          </figure>
+        </div>
+
+
+
+
+  <!-- Geolocalizacion  -->
+	<div class="select ">
+	    <span class="icon-down_line"></span>
+	    <select>
+	        <option>Está viendo insumos en:   Tunja</option>
+	        <option>Opcion B</option>
+	    </select>
+	 </div>
+	
+	<a href="#/addprecio">
+	 <button class="btn btn-primary btn-green btn-plus-b">Añadir precio</button>
+	</a>
+
+	<div align="center" >
+      <p class="title_loginn">
+          Los precios a continuacion mostrados están</br> regidos bajo la Ley 321 de la republica </br> de Colombia. <a href="https://www.minagricultura.gov.co/Paginas/default.aspx"> <strong><u>Conocer más </u></strong></a>
+      </p>
+    </div>
+    
+	<section class="cont-agroinsumos" ng-repeat="insumo in insumos">
+        <header class="cont-agroinsumos__header">
+          <h4 class="cont-agroinsumos__header__title">
+            {{insumo.NombreInsumo}} 
+            <small class="fontSmallCategoria"> 
+              {{insumo.Cantidad}} 
+              {{insumo.UnidadPresentacion}} 
+            </small> 
+          </h4>
+          </h4>{{insumo.Favorito}} 
+          <div class="{{insumo.starFav}}" ng-click="actionFavorite(insumo)">
+            <span class="fontFavorite"></span>
+          </div>
+          <!-- <span class="icon-star_line" ng-click="actionFavorite(data)"></span> -->
+        </header>
+        <p class="ubuntu medium">
+      	 Costo promedio Municipal
+        </p> 
+        <div class="cont-agroinsumos__body">
+          <div class="articles__third__header__cost">
+            <h1 class="main">
+              ${{insumo.CostoPromdedioMunicipal}}
+            </h1>
+            <p class="national">
+              <span>Costo nacional</span>
+              <span>${{insumo.CostoDepartamental}}</span>
+            </p>
+            <p class="departmental">
+              <span>Costo departamental</span>
+              <span>${{insumo.CostoDepartamental}}</span>
+            </p>
+          </div>
+  
+    <!-- pasamos los ids del insumo para consumir el servicio -->
+		      <button class="btn btn-primary btn-green" 
+    ng-click="goToInsumo(insumo.IdInsumo, insumo.IdGeografia, insumo.IdPresentacionProducto)"
+          >
+		        Ver mas
+		      </button>
+	<!--       </a> -->
+        </div>
+  </section>
+<!--   <ion-infinite-scroll icon="ripple" ng-if="!noMoreItemsAvailable" on-infinite="loadMore()" distance="2"></ion-infinite-scroll> -->
+</ion-content>
+</ion-view>

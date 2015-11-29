@@ -1,0 +1,235 @@
+<ion-view view-title=" Fertilizantes"  hide-back-button="false">
+
+<div class="bar-header actionbar">
+	 <header class="header agroinsumos">
+        <div class="internal-title__header with-scroll">
+          <a href="#/home">
+            <div class="go-back">
+              <span class="go-back__icon titlebar">Mis Publicaciones</span>
+            </div>
+          </a>
+        </div>
+    </header>
+</div>
+<ion-content >
+  <div ng-if="oneditar">
+  	<div class="search__input">
+     <span class="icon icon-search"></span>
+     <input type="search" placeholder="Buscar" ng-change="searchInCategoria()" ng-model="data.searchInCategoria">
+    </div>
+    
+   <!-- Lista de resultados de busqueda -->
+       <!--    <div class="list_result" ng-repeat="airline in data.airlines">
+            <figure class="internal-title__body__prof">
+              <a href="#/insumo" ng-click="pasId({{airline.IdInsumo}})">
+                <li class="item" >
+                  <img src="img/{{imgCategoria}}.png" alt="">
+                  {{airline.NombreInsumo}} 
+                  <small class="fontSmall">
+                    {{airline.Cantidad}} {{airline.UnidadPresentacion}} -->
+                    <!-- {{airline.IdInsumo}} {{airline.CategoriaId}} -->
+          <!--         </small> 
+                </li>
+              </a>
+            </figure>
+          </div>
+   -->
+
+  	<section class="cont-agroinsumos" ng-repeat="publicacion in publicaciones">
+          <header class="cont-agroinsumos__header">
+            <h4 class="cont-agroinsumos__header__title">
+              {{publicacion.Producto}} 
+              <small class="fontSmallCategoria"> 
+                {{publicacion.Cantidad}} 
+              </small> 
+            </h4>
+            <div class="icon-star_line out" ng-click="actionEdit(publicacion)">
+              <span class="ion-edit edit" ></span>
+            </div>
+            <div class="icon-star_line" ng-click="actionDelete(publicacion)">
+              <span class="ion-trash-a edit" ></span>
+            </div>
+            <!-- <span class="icon-star_line" ng-click="actionFavorite(data)"></span> -->
+          </header>
+          <p class="ubuntu medium">
+        	 Precio Añadido
+          </p> 
+          <div class="cont-agroinsumos__body">
+            <div class="articles__third__header__cost">
+              <h1 class="main">
+                $ {{publicacion.Precio}}
+              </h1>
+              <p class="national">
+                <span>Punto de venta</span>
+                <span>{{publicacion.PuntodeVentaText}}</span>
+              </p>
+              <p class="departmental">
+                <span>Marca</span>
+                <span>{{publicacion.MarcaText}}</span>
+              </p>
+            </div>
+    
+            <div>
+            <p> 
+              <strong>Comentario :</strong></p>
+              <p>{{publicacion.Comentario}}</p>
+            </div>
+            <br>
+          </div>
+    </section>
+
+  </div>
+
+
+
+
+
+
+
+
+
+  <!-- editar publicaciones  -->
+
+
+
+
+
+  <div ng-if="!oneditar">
+      <form class="addprecio" >
+        <div class="list">
+        
+        <!-- categoria-->
+          <p class="block__content__cont-tag ubuntu medium">
+              Categoria:
+          </p>
+          <div class="forms_select">
+              <div class="select">
+                <span class="icon-down_line"></span>
+                <select  ng-model="publicacion.categoria" id="category">
+                  <option  class="op_orange" value="0">Seleccione una categoria</option>
+                  <option  class="op_orange" value="2" >Plaguicidas</option>
+                  <option  class="op_orange" value="3" >Medicamentos Veterinarios </option>
+                  <option  class="op_orange" value="4" >Vacunas</option>
+                  <option  class="op_orange" value="1" >Fertilizantes</option>
+                </select>
+              </div>
+          </div>
+          <!-- Producto -->
+
+          <p class="block__content__cont-tag ubuntu medium">
+              Producto:    
+          </p>
+          <div class="form_login ">
+              <label class="item item-input input_login">
+
+                <input type="text" placeholder=" "
+                ng-model="publicacion.producto">
+ 
+              </label>
+          </div>
+
+        <!-- Lista de resultados de busqueda productos -->
+      <!--   <div class="list_result" ng-repeat="airline in publicacion.airlines"
+          ng-click="selectProducto(airline.NombreInsumo,
+                  airline.Cantidad,
+                  airline.UnidadPresentacion ,
+                  airline.IdInsumo ,
+                  airline.Departamento,
+                  airline.Municipio,
+                  airline,IdPresentacionProducto )">
+            
+              <li class="item" >
+                {{airline.NombreInsumo}} 
+                <small class="fontSmall">
+                {{airline.Cantidad}} {{airline.UnidadPresentacion}} -->
+                <!-- {{airline.IdInsumo}} {{airline.CategoriaId}} -->
+     <!--            </small>
+              </li>
+        </div>  -->
+
+          <!-- Presentacion -->
+          <p class="block__content__cont-tag ubuntu medium">
+              Presentación:  
+          </p>
+          <div class="form_login ">
+              <label class="item item-input input_login">
+
+                  <input type="text" ng-model="publicacion.presentacion">
+
+              </label>
+          </div>
+        
+          <!-- Ciudad -->
+        <p class="block__content__cont-tag ubuntu medium">
+              Ciudad:
+          </p>
+          <div class="form_login ">
+              <label class="item item-input input_login">
+
+                  <input type="text" placeholder=" " ng-model="publicacion.ciudad">
+
+              </label>
+         </div>
+        
+
+          <!-- nombre del punto de venta -->
+          <p class="block__content__cont-tag ubuntu medium">
+              Nombre del punto de venta:
+          </p>
+          <div class="form_login row" style="padding: 0px;">
+        
+          <label class="col input_login item item-input "
+              >
+                <input type="text" 
+                ng-model="publicacion.nombrePuntoDeVenta"
+                ng-change="searchPuntoVenta()" >
+              </label>
+
+              <a class="col col-33  button button-small button-clear button-color-green passwordView ajusta" style="background-color: white; color: #e8b037; " ng-click="goToAddPV()">+</a>
+          </div>
+
+
+          
+        <!-- Lista de resultados de busqueda puntos de venta -->
+        <div class="list_result" ng-repeat="puntosVenta in publicacion.puntosVenta"
+          ng-click="selectPuntoVenta(puntosVenta.Nombre,
+                  puntosVenta.IdPuntoVenta)">
+            
+              <li class="item" >
+                {{puntosVenta.Nombre}} 
+              </li>
+        </div> 
+
+
+
+         <!-- Precio -->
+        <p class="block__content__cont-tag ubuntu medium">
+              Precio:
+          </p>
+          <div class="form_login ">
+              <label class="item item-input input_login">
+
+                  <input type="text" placeholder="$ " ng-model="publicacion.precio">
+
+              </label>
+          </div>
+
+          <!-- Comentarios -->
+          <p class="block__content__cont-tag ubuntu medium">
+              Comentarios:
+          </p>
+
+          <div class="forms_select">
+            <textarea class="text-area" rows="4" cols="40"  ng-model="publicacion.comentario"> </textarea>
+          </div>
+
+         
+            <button class="btn btn-primary btn-green" ng-click="goConfirmar()">Añadir</button>
+          
+        </div>
+      </form>
+    </div>
+
+
+  </ion-content>
+</ion-view>

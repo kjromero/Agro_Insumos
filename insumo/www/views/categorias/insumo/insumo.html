@@ -1,0 +1,151 @@
+<ion-view view-title="Mi Perfil s" hide-back-button="false">
+<div class="bar-header actionbar">
+   <header class="header agroinsumos">
+      <div class="internal-title__header with-scroll">
+          <a href="#/home">
+            <div class="go-back">
+              <span class="go-back__icon">Regresar</span>
+            </div>
+          </a> 
+          <div class="add-favorite" ng-click="actionFavorite(detalleInsumo)">
+            <span class="{{insumo.starFav}}">Añadir a favoritos</span>
+          </div>
+      </div>
+    </header>  
+</div> 
+  <ion-content class="gris" ng-controller="insumoCtrl">
+	<div class="internal-title__body int_insumo">
+	    <figure class="internal-title__body__prof">
+	      <img src="img/{{imgCategoria}}.png">
+	      <span>{{nameCategoria}}</span>
+	    </figure>
+	    <div class="title_insumo">
+	      <h1 class="">{{detalleInsumo.NombreInsumo}}</h1>
+		  <p class="">
+		     Ultima actualización el {{detalleInsumo.Fecha}}
+		  </p>
+	    </div>
+	</div>
+
+	<div class="articles__third">
+            <header class="articles__third__header">
+              <span class="articles__third__header__average">
+                Costo promedio en:
+              </span>
+
+              <!-- buscador municipios  -->
+              <div class="cont-select">
+                <div class="select">
+                  <label class="item item-input borderForm busquedaMunDetail">
+                    <input type="text" 
+                    ng-model="municipioDefaul.busqueda"
+                    ng-change="searchMunicipio()">
+                    <!-- <input type="search" placeholder="Buscar" ng-change="search()" ng-model="data.search"/> -->
+                  </label> 
+                </div>
+              </div>
+
+            
+              <!-- Lista de resultados de busqueda municipio-->
+                <div class="list_result" ng-repeat="municipio in municipioDefaul.municipios"
+                ng-click="selectMunicipio(municipio.Nombre,
+                  municipio.Departamento,municipio.Id)">
+
+                      <li class="item" >
+                        {{municipio.Nombre}} , {{municipio.Departamento}}
+                      </li>
+                </div>
+             
+
+
+              <div class="articles__third__header__cost">
+                <h1 class="main">
+                  ${{detalleInsumo.CostoPromdedioMunicipal}}
+                </h1>
+                <p class="national">
+                  <span>Costo nacional</span>
+                  <span>${{detalleInsumo.PromedioNacional}}</span>
+                </p>
+                <p class="departmental">
+                  <span>Costo departamental</span>
+                  <span>${{detalleInsumo.CostoDepartamental}}</span>
+                </p>
+              </div>
+             
+              <button class="btn btn-primary btn-green btn-plus-a" ng-click="goToAddPrecio()">Añadir precio</button>
+          	
+            </header>
+
+
+            <!-- listas desplegables -->
+            <div class="list">
+              <!-- Marcas -->
+              <div class="item item-divider" ng-click="desplegar(1)">
+                Marcas en el mercado
+              </div>
+
+              <a href="" class="item" ng-if="desplegado1" 
+              ng-repeat="marca in detalleInsumo.Marcas">
+                {{detalleInsumo.NombreInsumo}}
+                <br>
+                {{marca.NombreMarca}}
+                
+              </a>
+              
+              <!-- Puntos de venta -->
+              <div class="item item-divider" ng-click="desplegar(2)">
+                Puntos de venta
+              </div>
+
+              <a href="" class="item" ng-if="desplegado2"
+              ng-repeat="punto in detalleInsumo.PuntosDeVentas">
+                
+                {{punto.Nombre}}
+                <br>
+                {{punto.Municipio}} 
+                <br>
+                {{punto.Descripcion}} 
+              </a>
+             
+              <!-- Historico -->
+              <div class="item item-divider" ng-click="desplegar(3)">
+                Historico
+              </div>
+
+              <a href="" class="item" ng-if="desplegado3"
+              ng-repeat="historico in detalleInsumo.Historicos">
+                {{historico.FechaText}}
+                <br>
+                ${{historico.Precio}}
+              </a>
+            </div>  
+
+
+            <footer class="articles__first__footer">
+              <p class="articles__first__footer__util small">
+                ¿Le fue util esta información?
+              </p>
+             
+                <button class="articles__first__footer__yes" ng-click="yea(1)">Si</button>
+             
+              
+               <button class="articles__first__footer__no" ng-click="yea(2)">No</button>
+             
+              <br>
+              <br>
+              <br>
+              <br>
+              <a href="#" class="anchor" ng-click="share(detalleInsumo.NombreInsumo,
+              detalleInsumo.PromedioNacional)">
+                Compartir<span class="anchor__right icon-share" ></span>
+              </a>
+
+              <br>
+              <br>
+              <br>
+              <br>
+            </footer>
+          </div>
+  </ion-content>
+</ion-view>
+

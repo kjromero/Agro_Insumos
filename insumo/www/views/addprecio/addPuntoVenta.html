@@ -1,0 +1,57 @@
+<ion-view view-title="Mi Perfil s" hide-back-button="false">
+<div class="bar-header actionbar">
+   <header class="header agroinsumos">
+    <a href="#/addprecio" class="anchor">
+      <span class="anchor__left icon-left_line"></span>Regresar
+    </a>
+          <h1 class="title_perfil" >Añadir Punto de Venta</h1>
+     </header>
+</div>
+  <ion-content class="gris addpv" >
+<br>
+    <p class="block__content__cont-tag ubuntu medium">
+        Nombre del punto de venta :    
+    </p>
+    
+    <div class="form_login ">
+        <label class="item item-input input_login">
+
+          <input type="text" placeholder=" " 
+          ng-change="searchProducto()"
+          ng-model="puntoventaModel.nombre">
+
+        </label>
+    </div>
+
+    <!-- Lugar -->
+    <p class="block__content__cont-tag ubuntu medium">
+        Lugar:    
+    </p>
+    <div class="form_login ">
+        <label class="item item-input input_login">
+
+          <input type="text" placeholder="Tenjo Cundinamarca " 
+          ng-change="searchProducto()"
+          ng-model="puntoventaModel.lugar">
+
+        </label>
+    </div>
+
+    <!-- descripcion  -->
+    <p class="block__content__cont-tag ubuntu medium">
+        Descripción:    
+    </p>
+    <div class="forms_select">
+      <textarea class="text-area" rows="4" cols="40"  ng-model="puntoventaModel.descripcion"> </textarea>
+    </div>
+
+    <hr>
+
+    <a href="#/addprecio">
+        <button class="btn btn-primary btn-green" ng-click="addPv()">Añadir</button>
+    </a>
+
+
+  </ion-content>
+</ion-view>
+
