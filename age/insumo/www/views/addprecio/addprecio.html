@@ -1,0 +1,206 @@
+<ion-view view-title="Mi Perfil s" hide-back-button="false">
+<div class="bar-header actionbar">
+   <header class="header agroinsumos">
+    <a href="#/fertilizantes" class="anchor">
+      <span class="anchor__left icon-left_line"></span>Regresar
+    </a>
+      <h1 class="title_perfil" >Añadir precio</h1>
+     </header>
+</div>
+
+ 
+  <ion-content  class="gris">
+    <div  ng-if="adding">
+      <form class="addprecio" >
+        <div class="list">
+        
+        <!-- categoria-->
+          <p class="block__content__cont-tag ubuntu medium">
+              Categoria:
+          </p>
+          <div class="forms_select">
+              <div class="select">
+                <span class="icon-down_line"></span>
+                <select  ng-model="precioModel.categoria" id="category">
+                  <option  class="op_orange" value="0">Seleccione una categoria</option>
+                  <option  class="op_orange" value="2" >Plaguicidas</option>
+                  <option  class="op_orange" value="3" >Medicamentos Veterinarios </option>
+                  <option  class="op_orange" value="4" >Vacunas</option>
+                  <option  class="op_orange" value="1" >Fertilizantes</option>
+                </select>
+              </div>
+          </div>
+          <!-- Producto -->
+
+          <p class="block__content__cont-tag ubuntu medium">
+              Producto:    
+          </p>
+          <div class="form_login ">
+              <label class="item item-input input_login">
+
+                <input type="text" placeholder=" " 
+                ng-change="searchProducto()"
+                ng-model="precioModel.producto">
+ 
+              </label>
+          </div>
+
+        <!-- Lista de resultados de busqueda productos -->
+        <div class="list_result" ng-repeat="airline in precioModel.airlines"
+          ng-click="selectProducto(airline.NombreInsumo,
+                  airline.Cantidad,
+                  airline.UnidadPresentacion ,
+                  airline.IdInsumo ,
+                  airline.Departamento,
+                  airline.Municipio,
+                  airline,IdPresentacionProducto )">
+            
+              <li class="item" >
+                {{airline.NombreInsumo}} 
+                <small class="fontSmall">
+                {{airline.Cantidad}} {{airline.UnidadPresentacion}}
+                <!-- {{airline.IdInsumo}} {{airline.CategoriaId}} -->
+                </small>
+              </li>
+        </div> 
+
+          <!-- Presentacion -->
+          <p class="block__content__cont-tag ubuntu medium">
+              Presentación:  
+          </p>
+          <div class="form_login ">
+              <label class="item item-input input_login">
+
+                  <input type="text" ng-model="precioModel.presentacion">
+
+              </label>
+          </div>
+        
+          <!-- Ciudad -->
+        <p class="block__content__cont-tag ubuntu medium">
+              Ciudad:
+          </p>
+          <div class="form_login ">
+              <label class="item item-input input_login">
+
+                  <input type="text" placeholder=" " ng-model="precioModel.ciudad">
+
+              </label>
+         </div>
+        
+
+          <!-- nombre del punto de venta -->
+          <p class="block__content__cont-tag ubuntu medium">
+              Nombre del punto de venta:
+          </p>
+          <div class="form_login row" style="padding: 0px;">
+        
+          <label class="col input_login item item-input "
+              >
+                <input type="text" 
+                ng-model="precioModel.nombrePuntoDeVenta"
+                ng-change="searchPuntoVenta()" >
+              </label>
+
+              <a class="col col-33  button button-small button-clear button-color-green passwordView ajusta" style="background-color: white; color: #e8b037; " ng-click="goToAddPV()">+</a>
+          </div>
+
+
+          
+        <!-- Lista de resultados de busqueda puntos de venta -->
+        <div class="list_result" ng-repeat="puntosVenta in precioModel.puntosVenta"
+          ng-click="selectPuntoVenta(puntosVenta.Nombre,
+                  puntosVenta.IdPuntoVenta)">
+            
+              <li class="item" >
+                {{puntosVenta.Nombre}} 
+              </li>
+        </div> 
+
+
+
+
+
+
+
+
+         <!-- Precio -->
+        <p class="block__content__cont-tag ubuntu medium">
+              Precio:
+          </p>
+          <div class="form_login ">
+              <label class="item item-input input_login">
+
+                  <input type="text" placeholder="$ " ng-model="precioModel.precio">
+
+              </label>
+          </div>
+
+          <!-- Comentarios -->
+          <p class="block__content__cont-tag ubuntu medium">
+              Comentarios:
+          </p>
+
+          <div class="forms_select">
+            <textarea class="text-area" rows="4" cols="40"  ng-model="precioModel.comentario"> </textarea>
+          </div>
+
+         
+            <button class="btn btn-primary btn-green" ng-click="goConfirmar()">Añadir</button>
+          
+        </div>
+      </form>
+    </div>
+
+
+
+
+
+
+    <!-- Confirmar adding precio -->
+    <div  class="gris confirmar" ng-if="!adding">
+      <p class="textTitleAdd">
+         <strong>Precio añadido</strong>
+         <br>
+          Muchas gracias por su colaboración, estos </br>son los datos que ha ingresado
+      </p>
+
+      <hr>
+           
+      <figure class="conf_title">
+        <img src="img/{{imgCategoria}}.png">
+        <span>{{nameCategoria}}</span>
+      </figure>
+       
+      <h1>{{precioModel.producto}}</h1>
+      <h2>${{precioModel.precio}}</h2>
+    
+      <p class="conf_text">
+         
+         <br>
+          {{precioModel.nombrePuntoDeVenta}}
+          </br> 
+          <div class="text-small-bold"><span class="icon-place"></span>{{precioModel.ciudad}}
+      </p>
+
+      <hr>
+
+      
+          <button class="btn btn-primary btn-green" ng-click="addPrecio()">Confirmar</button>
+      
+
+      
+      <button class="btn btn-outline btn-green" ng-click="modificarDatos()">
+        <span class="icon-left_line btn-icon-left btn-icon-small"></span>
+              Editar datos
+      </button>
+      
+    </div>
+
+
+
+  </ion-content>
+
+
+
+</ion-view>

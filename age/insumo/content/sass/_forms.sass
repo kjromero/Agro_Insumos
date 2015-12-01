@@ -1,0 +1,30 @@
+.cont-input-text
+  &.error
+    color: $red-main
+    input
+      border-color: $red-main
+    label
+      color: $red-main
+
+
+.input-text
+  border: 1px solid $agroinsumos-main
+  width: 90%
+  margin: 0.5rem auto
+  padding: 1em 
+  display: block
+  height: 45px
+  border-radius: 4px
+  font-family: $second-font-light
+  font-weight: normal
+  font-size: $fz-medium
+  color: $text-main
+  outline: none
+  &__label
+    margin-left: 1rem
+
+.text-area
+  @extend .input-text
+  height: auto
+  &__label
+    margin-left: 1rem

@@ -1,0 +1,111 @@
+<ion-view view-title="" hide-back-button="false">
+<!-- Header de login -->
+	<div class=" bar-header ">
+		 <header class="header agroinsumos">
+	          <div class="branding center" align="center">
+	            <img src="img/logo_insumos.png" height="42" width="126">
+	          </div>
+	      </header>
+	</div>
+	<!-- contenido de login -->
+
+  <ion-content >
+
+    <div align="center" class="p_bar">
+    	<p class="title_loginn">
+          Cree una cuenta única para </br> AgroTeConecta,Agronet, AgroInsumos y </br>Agronegocios en un solo paso:
+      </p>
+    </div>
+    <form ng-submit="onSubmit(theForm.$valid)" name="theForm" novalidate="novalidate">
+
+    	<p class="block__content__cont-tag ubuntu medium">
+          Ingrese su correo electronico:
+      </p> 
+
+      <div class="form_login ">
+
+          <label class="item item-input "
+
+            ng-class="{
+             'borderForm': theForm.email.$valid && !theForm.$pristine,
+             'borderFormError': !theForm.email.$valid && !theForm.$pristine,
+            }"      >
+            <input 
+              type="email" 
+              placeholder="Ingrese su correo electrónico"
+              ng-model="formModel.email"  
+              id="email"
+              name="email"
+              required="required"
+            >
+          </label> 
+
+          <p 
+            class="textColorLogin textLoginMin marginAuxTab" 
+            ng-show="theForm.email.$error.required && (!theForm.$pristine || theForm.$submitted)">
+            Este campo es obligatorio
+          </p>
+
+          <p 
+            class="textColorLogin textLoginMin marginAuxTab" 
+            ng-show="theForm.email.$error.email && (!theForm.$pristine || theForm.$submitted)">
+            Esta no es una opcion de Correo Electornico
+          </p>
+
+      </div>
+
+      <p class="block__content__cont-tag ubuntu medium">
+          Cree su contrasena:
+      </p>
+
+      <div class="form_login ">
+
+        <div class="row" style="padding: 0px;">
+        
+          <label class="col  passwordCreate item item-input borderForm input_login">
+
+            <input type="{{typeInput}}" 
+              placeholder=" Ingrese su contraseña"
+              ng-model="formModel.password"  
+              id="password"
+              name="password"
+              required="required"
+              >
+            
+          </label> 
+
+            <Button type="button" class="col col-33  button button-small button-clear button-color-green passwordView input_login" style="background-color: white;" ng-click="viewPassword()">VerContraseña</Button>
+
+          
+        </div>
+          <p 
+            class="textColorLogin textLoginMin marginAuxTab" 
+            ng-show="theForm.password.$error.required && (!theForm.$pristine || theForm.$submitted)">
+            Este campo es obligatorio
+          </p>
+
+      </div>
+ 
+      
+
+      <button type="submit"  class="btn btn-primary btn-green" ng-click="ingresar()" >Ingresar</button>
+
+    </form >
+
+
+    <div align="center" >
+      <p class="plogin">
+          Si ya es usuario de Agronet o de alguna de sus</br> 
+          aplícaciones ingrese con su cuenta de usuario.
+      </p>
+    </div>
+    
+    <a href="#/login">
+      <button class="btn btn-outline btn-green" >
+
+        <strong>Ya tengo cuneta</strong>
+
+      </button>
+    </a>
+  </ion-content>
+</ion-view>

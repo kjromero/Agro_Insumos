@@ -1,0 +1,124 @@
+.btn
+	position: relative
+	margin: 1em auto
+	width: 90%
+	height: 50px
+	display: block
+	touch-action: manipulation
+	border-radius: 2px
+	border: 1px solid transparent
+	cursor: pointer
+	font-family: $second-font
+	font-size: $fz-medium
+	text-align: center
+	outline: none
+	white-space: nowrap
+	vertical-align: middle
+
+	&.btn-medium
+		width: 200px
+		height: 37px
+
+	&.btn-small
+		width: 120px
+		height: 37px
+
+	[class^="icon-"], [class*=" icon-"]
+		color: white
+		font-size: 24px
+
+.btn-primary
+	color: white
+	&.btn-plus-a
+		position:relative
+
+		&:after
+			content: '+'
+			position: absolute
+			display: block
+			top: 0
+			right: 0
+			width: 40px
+			height: 100%
+			border-left: 1px solid $green-dark
+			font-size: 26px
+			line-height: 48px
+
+	&.btn-plus-b
+		@extend .btn-plus-a
+		background: $green-light
+		color: $green-dark
+
+.btn-green
+	background: $green-main
+	border-color: $green-dark
+	color: white
+
+	&.btn-outline
+		background: white
+		color: $green-main
+		border-color: $green-light
+
+		[class^="icon-"], [class*=' icon-']
+			color: $green-main
+
+.btn-orange
+	background: $agroteconecta-orange
+	border-color: $agroteconecta-orange-dark
+	color: white
+	line-height: 33px
+	&.margin-bottom
+		margin-bottom: 3rem
+
+	&.btn-outline
+		background: white
+		color: $agroteconecta-orange
+		border-color: $agroteconecta-orange-dark
+
+		[class^="icon-"], [class*=' icon-']
+			color: $agroteconecta-orange
+
+.btn-purple
+	background: $agroteconecta-purple
+	border-color: $agroteconecta-purple-dark
+	color: white
+
+	&.btn-outline
+		background: white
+		color: $agroteconecta-purple
+		border-color: $agroteconecta-purple-dark
+
+		[class^="icon-"], [class*=' icon-']
+			color: $agroteconecta-purple
+
+.btn-blue
+	background: $agroteconecta-blue
+	border-color: $agroteconecta-blue-dark
+	color: white
+
+	&.btn-outline
+		background: white
+		color: $agroteconecta-blue
+		border-color: $agroteconecta-blue-dark
+
+		[class^="icon-"], [class*=' icon-']
+			color: $agroteconecta-blue
+
+.btn-icon-small
+	line-height: 10px
+	&:before
+		font-size: 10px
+		line-height: 18px
+
+.btn-icon-left
+	position: absolute
+	top: 50%
+	left: 15px
+	transform: translate(0,-50%)
+
+
+.btn-icon-right
+	position: absolute
+	top: 50%
+	right: 15px
+	transform: translate(0,-50%)
